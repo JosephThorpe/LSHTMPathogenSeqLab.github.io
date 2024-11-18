@@ -220,6 +220,14 @@ top: 50vh;
   text-decoration: none;
   font-family: 'Heebo', sans-serif;
 }
+.powerpoint{
+    color: black;
+}
+.powerpoint:hover{
+    color: rgb(0,191,111);
+}
+
+
 .author{
     height:fit-content;
 }
@@ -296,23 +304,26 @@ console.log($(document).width())
             </div>
             
             <div class="bottomevents">
-                <h3 style="margin-left: 20px; margin-top: 5px;">MRC LID PhD Projects</h3>
+                <h3 style="padding-left: 20px; padding: 5px;">MRC LID PhD Projects</h3>
+                <br>
+                    <h6 style="margin-left: 20px; margin-top: 5px;">We are offering two PhD projects Select a powerpoint to download below:</h6>
+                
             </div>
-            <div class="bottomevents">
-                <h6 style="margin-left: 20px; margin-top: 5px;">We are offering two PhD projects Select a powerpoint to download below:</h6>
-            </div>
+            
         </div>
     </section>
     <section class="events">
         <div class="container">
           <div class="bottomevents2" >
             <div class="row" style="height: inherit;">
-              <div class="col-6" style="display: flex; text-align: center; align-items: center; justify-content: center; height: inherit;">
-                <p>Susana Campino's project  <a href="/assets/files/MRC_LID_Campino_slides.pptx">Download</a></p>
+              <div class="col-6" style="display: flex; text-align: center; align-items: center; justify-content: center; height: inherit; flex-direction: column;">
+                <p>Susana Campino's project </p>
+                <a class="powerpoint" href="/assets/files/MRC_LID_Campino_slides.pptx">Download</a>
               </div>
-              <div class="col-6" style="display: flex; align-items: center; justify-content: center;">
+              <div class="col-6" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
                 <p>Taane Clark's project </p>
-                <a href="/assets/files/MRC_LID_Clark_slides.pptx">Download</a>
+                <a class="powerpoint"  href="/assets/files/MRC_LID_Clark_slides.pptx">Download</a>
+
               </div>
               <!-- <div class="col-4" style="display: flex; align-items: center; justify-content: center;">
                 <p></p>
@@ -321,6 +332,7 @@ console.log($(document).width())
         </div>
       </div>
     </section>
+    <iframe src='https://view.officeapps.live.com/op/embed.aspx?src=[https://www.your_website/file_name.pptx]' width='100%' height='600px' frameborder='0'></iframe>
     {% assign count = 0 %}
       
     <section class="pastEvents">
