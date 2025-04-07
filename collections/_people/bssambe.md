@@ -4,7 +4,7 @@ alumni: false
 pid: bssambe
 forname: Babacar Souleymane
 surname: Sambe
-title: Research fellow 
+title: Visiting researcher
 Important-fact: Loving science and curious about the benefits of tranquility 
 tags:   
 - Malaria
