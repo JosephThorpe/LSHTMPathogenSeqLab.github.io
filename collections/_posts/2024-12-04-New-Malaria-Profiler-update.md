@@ -1,7 +1,7 @@
 ---
 layout: post
 pid: malariaprofiler
-hidden: true
+hidden: false
 titleForBox: New Est-Moi update for malaria-profiler
 author: jthorpe
 link: https://bioinformatics.lshtm.ac.uk/malaria-profiler/
