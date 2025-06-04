@@ -1,7 +1,7 @@
 ---
 layout: post
 pid: vbd_24
-hidden: true
+hidden: false
 titleForBox: Susana Campino and Nina Billows Spotlight Future of Vector Research at UK VBD Conference
 author: jthorpe
 link: none
