@@ -159,9 +159,19 @@ position: relative;
  
 }
 
-.col-4{
-    object-fit: contain;
+.upcoming-items > :nth-child(1),.upcoming-items > :nth-child(2){
+    border-right: 1px solid rgb(0,191,111);
+    padding: 30px;
+    
 }
+
+.upcoming-items > :nth-child(3){
+
+    padding: 10px;
+    
+}
+
+
 
 .grid-1 {
   
@@ -306,9 +316,9 @@ console.log($(document).width())
             </div>
             
             <div class="bottomevents">
-                <h3 style="padding-left: 20px; padding: 5px;">MRC LID PhD Projects</h3>
+                <h3 style="padding-left: 20px; padding: 5px;">Upcoming events</h3>
                 <br>
-                    <h6 style="margin-left: 20px; margin-top: 5px;">We are offering two PhD projects Select a powerpoint to download below:</h6>
+                    <h6 style="margin-left: 20px; margin-top: 5px;">Check out our upcoming events we are involved in</h6>
                 
             </div>
             
@@ -317,8 +327,17 @@ console.log($(document).width())
     <section class="events">
         <div class="container">
           <div class="bottomevents2" >
-            <div class="row" style="height: inherit;">
-              <div class="col-6" style="display: flex; text-align: center; align-items: center; justify-content: center; height: inherit; flex-direction: column;">
+            <div class="row upcoming-items" style="height: inherit;">
+                <div class="col-4" style="display: flex; align-items: center; justify-content: center;">
+                    <p>Susana Campino will be presenting the teams tick work at the UKRI-DEFRA VBD project meeting</p>
+                </div> 
+                <div class="col-4" style="display: flex; align-items: center; justify-content: center;">
+                    <p>New tick genomes to be released</p>
+                </div>
+                <div class="col-4" style="display: flex; align-items: center; justify-content: center;">
+                    <p>New work on dengue and anopheles to be released</p>
+                </div>
+              <!-- <div class="col-6" style="display: flex; text-align: center; align-items: center; justify-content: center; height: inherit; flex-direction: column;">
                 <p>Susana Campino's project </p>
                 <a class="powerpoint" href="/assets/files/MRC_LID_Campino_slides.pptx">Download</a>
               </div>
@@ -326,7 +345,7 @@ console.log($(document).width())
                 <p>Taane Clark's project </p>
                 <a class="powerpoint"  href="/assets/files/MRC_LID_Clark_slides.pptx">Download</a>
 
-              </div>
+              </div> -->
               <!-- <div class="col-4" style="display: flex; align-items: center; justify-content: center;">
                 <p></p>
             </div> -->
