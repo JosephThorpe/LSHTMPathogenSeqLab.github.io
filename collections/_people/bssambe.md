@@ -1,6 +1,6 @@
 --- 
 layout: people
-alumni: false
+alumni: true
 pid: bssambe
 forname: Babacar Souleymane
 surname: Sambe

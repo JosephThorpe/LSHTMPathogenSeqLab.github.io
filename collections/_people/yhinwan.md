@@ -1,6 +1,6 @@
 --- 
 layout: people
-alumni: false
+alumni: true
 pid: yhinwan
 forname: Yothin
 surname: Hinwan
