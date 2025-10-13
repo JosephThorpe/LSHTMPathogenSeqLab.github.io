@@ -1,7 +1,7 @@
 ---
 layout: post
 pid: london2025
-hidden: true
+hidden: false
 titleForBox: Infectious Disease ‘omics short course at LSHTM (April 2025)
 author: jthorpe
 link: none

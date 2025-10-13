@@ -1,7 +1,7 @@
 ---
 layout: post
 pid: astephensi
-hidden: true
+hidden: false
 titleForBox: A new publication on the genomic diversity of the malaria vector <i>Anopheles stephensi</i>
 author: jthorpe
 link: https://pubmed.ncbi.nlm.nih.gov/40355632/
