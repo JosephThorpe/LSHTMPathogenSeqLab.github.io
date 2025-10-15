@@ -1,6 +1,6 @@
 ---
 layout: people
-alumni: false
+alumni: true
 pid: aabdulai
 forname: Anisa
 surname: Abdulai
