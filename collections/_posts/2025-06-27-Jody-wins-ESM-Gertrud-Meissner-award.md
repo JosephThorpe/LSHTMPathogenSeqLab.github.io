@@ -1,7 +1,7 @@
 ---
 layout: post
 pid: jody_prize
-hidden: true
+hidden: false
 titleForBox: Jody Phelan is the recipient of the ESM Gertrud Meissner Award 2025.
 author: jthorpe
 link: none

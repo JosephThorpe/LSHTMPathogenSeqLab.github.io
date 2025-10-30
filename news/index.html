@@ -264,7 +264,28 @@ color: rgb(49,48,48);
     position: absolute;
     top: 0;
 }
+.newsbox .content {
+    
+    flex-grow: 1;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
+}
+.col-xl-4 .title,
+.col-xl-4 .author {
+  flex-shrink: 0;
+}
+.newsbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 450px;          /* make all boxes same height */
+  overflow: hidden;
+  background: white;      /* optional: clean background */
+  border-radius: 10px;    /* optional: visual consistency */
+  padding: 10px;
+}
 </style>
 <links>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -329,13 +350,13 @@ console.log($(document).width())
           <div class="bottomevents2" >
             <div class="row upcoming-items" style="height: inherit;">
                 <div class="col-4" style="display: flex; align-items: center; justify-content: center;">
-                    <p>Susana Campino will be presenting the teams tick work at the UKRI-DEFRA VBD project meeting</p>
+                    <p>The team will be travelling to Copenhagen for a conference on TB work</p>
                 </div> 
                 <div class="col-4" style="display: flex; align-items: center; justify-content: center;">
                     <p>New tick genomes to be released</p>
                 </div>
                 <div class="col-4" style="display: flex; align-items: center; justify-content: center;">
-                    <p>New work on dengue and anopheles to be released</p>
+                    <p>New sandfly genomes to be released</p>
                 </div>
               <!-- <div class="col-6" style="display: flex; text-align: center; align-items: center; justify-content: center; height: inherit; flex-direction: column;">
                 <p>Susana Campino's project </p>
@@ -373,7 +394,7 @@ console.log($(document).width())
                   
                   {% endif %}
                   
-                    <div class="col-xl-4" style="max-height: 450px; overflow-y: hidden;">
+                    <div class="col-xl-4 newsbox" style="max-height: 450px; overflow-y: hidden;">
                       <div class="title">
                         <h3 style="font-family: 'Heebo', sans-serif; text-align: center;"><a href="{{ link }}">{{ post.titleForBox }}</a></h3>
                       </div>
