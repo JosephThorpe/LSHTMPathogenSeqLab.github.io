@@ -1,7 +1,7 @@
 ---
 layout: post
 pid: thai_30year
-hidden: true
+hidden: false
 titleForBox: Genomic decoding of drug-resistant tuberculosis transmission in Thailand over three decades
 author: jthorpe
 link: https://www.nature.com/articles/s41598-025-15093-7
