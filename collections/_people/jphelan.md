@@ -5,7 +5,7 @@ pid: jphelan
 forname: Jody
 surname: Phelan
 title: Assistant Professor of Computational Biology
-Leader: true
+Leader: false
 link: https://www.lshtm.ac.uk/aboutus/people/phelan.jody
 Important-fact: I know the genomic coordinates of way more Mtb variants than I'd like to admit
 tags:
