@@ -4,7 +4,7 @@ alumni: false
 pid: amemon
 forname: Aminah
 surname: Memon
-title: UKMRI PhD student
+title: MRC LiD PhD student
 Important-fact: Trilingual & advocate for colour coordination
 tags:   
     - Bioinformatics

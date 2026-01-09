@@ -4,7 +4,7 @@ alumni: false
 pid: nsingpanomchai
 forname: Nuntita
 surname: Singpanomchai
-title: PhD student
+title: Visiting PhD student
 Important-fact: By living with kindness, doing your best, and embracing time in nature, you nurture for true and lasting happiness.
 tags: 
  - Tuberculosis

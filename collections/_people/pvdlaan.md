@@ -4,7 +4,7 @@ alumni: false
 pid: pvdlaan
 forname: Puck
 surname: Van Der Laan
-title: LIDo PhD student
+title: BBSRC LIDO PhD student  
 Important-fact: Reptile and Bat enthusiast - will discuss at length if the opportunity presents 
 tags:
  - Vectors

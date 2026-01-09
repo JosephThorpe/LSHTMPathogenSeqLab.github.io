@@ -1,7 +1,7 @@
 ---
 layout: post
 pid: drlwang
-hidden: true
+hidden: false
 titleForBox: Dr Linfeng Wang
 author: jthorpe
 link: none

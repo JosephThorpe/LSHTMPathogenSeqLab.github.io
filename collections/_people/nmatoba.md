@@ -4,7 +4,7 @@ alumni: false
 pid: nmatoba
 forname: Naoki
 surname: Matoba
-title: PhD student
+title: UKRI OneZoo PhD student
 Important-fact: Naturalist
 tags:   
 - Bioinformatics

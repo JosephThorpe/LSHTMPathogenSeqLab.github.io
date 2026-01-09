@@ -1,7 +1,7 @@
 ---
 layout: post
-pid: Wellcome-Trust
-hidden: true
+pid: placental_malaria
+hidden: false
 titleForBox: Wellcome Discovery Award to Investigate Placental Malaria in Kenya
 author: jthorpe
 link: none
