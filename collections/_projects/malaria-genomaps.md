@@ -1,11 +1,11 @@
 ---
 layout: default
-name: Malaria-GENOMAP, A web-based tool for exploring genomic variation of malaria parasites.
+name: Malaria-GENOMAP
 theme: 
   - malaria
   - software
 pid: pmaps
-link: http://genomics.lshtm.ac.uk/malaria-genomaps/#/
+link: http://genomics.lshtm.ac.uk/vbdmaps/#/
 people:
   - jthorpe
 highlighted: true

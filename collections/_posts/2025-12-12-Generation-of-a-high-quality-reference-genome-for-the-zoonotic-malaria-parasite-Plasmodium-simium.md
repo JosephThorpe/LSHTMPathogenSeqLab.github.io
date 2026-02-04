@@ -1,7 +1,7 @@
 ---
 layout: post
 pid: simium_ref
-hidden: false
+hidden: true
 titleForBox: Generation of a high-quality reference genome for the zoonotic malaria parasite <i>Plasmodium simium</i>
 author: nbillows
 link: https://www.nature.com/articles/s41598-025-27554-0
