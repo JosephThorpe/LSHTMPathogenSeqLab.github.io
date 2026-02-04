@@ -1,7 +1,7 @@
 ---
 layout: post
 pid: an_darlingi
-hidden: true
+hidden: false
 titleForBox: Genomic analysis of <i>Anopheles darlingi</i> from Brazil
 author: smoss
 link: https://www.nature.com/articles/s42003-025-09316-w

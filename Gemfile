@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Jekyll version to run
-gem "jekyll", "~> 3.8"
+gem "jekyll", "~> 4.3"
 
 # Default theme for Jekyll sites
 gem "minima", "~> 2.0"
@@ -34,3 +34,5 @@ gem "webrick", "~> 1.7"
 
 # Optional: Add `listen` gem to ensure compatibility
 gem "listen", "~> 3.3"
+
+gem "logger"
