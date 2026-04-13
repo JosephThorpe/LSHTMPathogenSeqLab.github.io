@@ -1,6 +1,6 @@
 ---
 layout: people
-alumni: false
+alumni: true
 pid: nsingpanomchai
 forname: Nuntita
 surname: Singpanomchai
