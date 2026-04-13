@@ -1,7 +1,7 @@
 ---
 layout: post
 pid: mtan_pf_control
-hidden: true
+hidden: false
 titleForBox: Advancing DNA amplification techniques for routine clinical genomic sequencing of malaria parasites
 author: mtan
 link: https://pmc.ncbi.nlm.nih.gov/articles/PMC12717693/
