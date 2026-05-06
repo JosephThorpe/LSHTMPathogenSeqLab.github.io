@@ -1,7 +1,7 @@
 ---
 layout: post
 pid: pmaps
-hidden: true
+hidden: false
 titleForBox: Malaria-GENOMAP, a visualisation tool for exploring neglected Plasmodium genomic variation
 author: jthorpe
 link: https://academic.oup.com/bioinformatics/advance-article/doi/10.1093/bioinformatics/btag016/8419964

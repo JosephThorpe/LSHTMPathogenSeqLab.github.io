@@ -1,7 +1,7 @@
 ---
 layout: post
 pid: malaria-moi
-hidden: true
+hidden: false
 titleForBox: Malaria-MOI, A flexible and scalable tool for predicting multiplicity of infection in malaria parasites.
 author: nbillows
 link: https://link.springer.com/article/10.1186/s13073-026-01600-6
