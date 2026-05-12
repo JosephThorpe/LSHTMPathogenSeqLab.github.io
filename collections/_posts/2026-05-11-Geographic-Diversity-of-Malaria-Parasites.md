@@ -1,0 +1,12 @@
+---
+layout: post
+pid: popgenMal
+hidden: true
+titleForBox: Large-Scale Genomic Analysis of <i>Plasmodium falciparum</i> Reveals New Insights into Geographic Diversity and Parasite Adaptation
+author: nbillows
+link: https://pubmed.ncbi.nlm.nih.gov/42115185/
+brief: To investigate <i>Plasmodium falciparum</i> evolution, we analyse 17,565 isolates (17,489 previously published; 76 newly sequenced) from 39 countries, using identity-by-descent (IBD) networks, population structure inference, and selection scans. Analyses reveal distinct patterns of selection, transmission, and drug resistance. Selection analyses identify genomic regions across multiple metrics, encompassing established and emerging drug-resistance loci.
+excerpt_separator: "<!--more-->"
+---
+
+Malaria, caused by Plasmodium parasites, kills 610,000 people annually. The increasing availability of large-scale whole-genome sequencing (WGS) datasets enables investigation of parasite genetic diversity, population structure, and the spread of drug resistance. To investigate <i>Plasmodium falciparum</i> evolution, we analyse 17,565 isolates (17,489 previously published; 76 newly sequenced) from 39 countries, using identity-by-descent (IBD) networks, population structure inference, and selection scans. Analyses reveal distinct patterns of selection, transmission, and drug resistance. Selection analyses identify genomic regions across multiple metrics, encompassing established and emerging drug-resistance loci. These patterns highlight region-specific adaptive processes within Southeast Asia. IBD analyses reveal recent haplotype sharing that shows strong local selection. New WGS from Brazil show increased IBD around pfcrt, consistent with local drug-selection pressures. Similarly, isolates from Vietnam exhibit high relatedness and elevated IBD around pfKIC3, with all isolates carrying the pfkelch13 C580Y artemisinin resistance mutation. Elevated IBD in pfKIC7 and pfKIC9 in South America and the Horn of Africa suggests alternative pathways for future artemisinin resistance. Together, these findings highlight the genomic basis of <i>Plasmodium falciparum</i> adaptation and offer improved resolution for genomic surveillance of evolving parasite populations. 

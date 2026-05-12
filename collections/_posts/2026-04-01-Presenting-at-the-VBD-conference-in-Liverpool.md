@@ -1,7 +1,7 @@
 ---
 layout: post
 pid: ninaandjack
-hidden: true
+hidden: false
 titleForBox: Our team went to talk about our work at the vector borne diseases in the UK conference in Liverpool
 author: jthorpe
 link: none
