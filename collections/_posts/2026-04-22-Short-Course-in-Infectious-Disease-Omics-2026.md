@@ -1,7 +1,7 @@
 ---
 layout: post
 pid: omics2026
-hidden: true
+hidden: false
 titleForBox: In April, we delivered our annual four-day LSHTM and online short course on infectious disease ‘omics.
 author: jthorpe
 link: none
