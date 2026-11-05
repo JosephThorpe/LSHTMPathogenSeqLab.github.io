@@ -1,7 +1,7 @@
 ---
 layout: post
 pid: idot
-hidden: true
+hidden: false
 titleForBox: A genomics workshop in Bangkok, Thailand
 author: jthorpe
 link: none

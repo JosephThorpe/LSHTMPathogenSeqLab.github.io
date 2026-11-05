@@ -1,807 +1,496 @@
 ---
 layout: default
-title: About
+title: Home
 ---
-
-<!doctype html>
-<html lang="en" dir="ltr">
-    
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>PathogenSeq lab</title>
-        <links>
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <script src="https://kit.fontawesome.com/f8a9821c7d.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,500;1,8..144,500&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
-
-        </links>
-    </head>
-    <!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) — move to the default layout if every page should be tracked -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQRDTXMLDY"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-FQRDTXMLDY');
 </script>
-    <style>
-           body {
-  
-  overflow-x: hidden;
-  overflow: none; 
-}
-#myVideo {
-    width: 100%; 
-    height: inherit; 
-    object-fit: cover; 
-    
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+  .hp {
+    --green: #00bf6f;
+    --green-dark: #009a59;
+    --ink: #313030;
+    --ink-deep: #262525;
+    --soft: #f5f6f5;
+    --line: #e2e4e2;
+    --muted: #6a6d6b;
+    font-family: 'Heebo', system-ui, sans-serif;
+    color: var(--ink);
+    background: #fff;
+    overflow-x: hidden;
   }
-.what-we-do{
-  color: white;
- 
-border-radius: 25px;
-display: flex;
-padding: 22px;
-box-sizing: border-box;
+  .hp *, .hp *::before, .hp *::after { box-sizing: border-box; }
 
+  .hp-wrap {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 clamp(16px, 4vw, 48px);
+  }
 
-}
-#what-we-do {
+  .hp a:focus-visible,
+  .hp button:focus-visible {
+    outline: 3px solid var(--green);
+    outline-offset: 3px;
+  }
 
-padding-left: 25px;
-font-family: 'Roboto', sans-serif;
-border-bottom:groove 3px rgb(0,191,111);
+  .hp-h2 {
+    margin: 0;
+    font-weight: 900;
+    font-size: clamp(1.9rem, 4vw, 2.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  .hp-h2 span { color: var(--green); }
 
-}
-
-.text{
-  color:#ffffff
-}
- .slider-images{
-  background-color: rgb(49, 48, 48);
-  padding-top:200px;
-  padding-bottom: 200px;
-  
-  position: relative;
-  box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.75);
-
-  
- }
-        .slider {
-              width: 100%;
-              position: relative;
-                        }
-      
-          .slick-slide {
-            margin: 0px;
-            
-          }
-          .items {
-          }
-          .slick-slide img {
-            width: 100%;
-            height: 600px;
-
-          }
-          
-      
-          .slick-prev:before,
-          .slick-next:before {
-            color: black;
-          }
-           
-          .slick-slide {
-            transition: all ease-in-out .5s;border-radius: 25px;
-
-          
-          }
-         
-          .fa-solid{
-            cursor: pointer;
-            color: rgba(49, 48, 48,)
-          }
-          p,h5{
-            font-family: 'Lato', sans-serif;
-          }
-          .col-md-8{
-         
-            text-align: center;
-          }
-          #do-0:hover,#do-1:hover,#do-2:hover,#do-3:hover,#do-4:hover,#do-5:hover,#do-6:hover{
-            background-color: rgb(0,191,111);
-            cursor: pointer;
-            background-position:left bottom;
-            color: white;
-  font-weight: bold;
-          }
-          #do-0,#do-1,#do-2,#do-3,#do-4,#do-5,#do-6{
-            height: 100px;
-            display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(to left, rgb(240, 240, 240) 50%, rgb(0,191,111) 50%) right;
-            transition:all 1s ease;
-            background-size: 200% 100%;
-            border-radius: 20px;
- 
-          }
-          #do-0.active, #do-1.active, #do-2.active,#do-3.active, #do-4.active, #do-5.active,#do-6.active {
-  background: rgb(0,191,111);
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-          #dont{
-            height: 100px;
-            display: flex;
-  justify-content: center;
-  align-items: center;
-            }
-            .backvid{
-              width: 100%;
-              border-radius: 50%;
-height: 100vh;
-display:block;
-position: relative;
-background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-blend-mode: overlay;
-      
-      background-repeat: no-repeat;
-            }
-            .video_contain {
+  /* ---------- Video hero ---------- */
+  .hp-hero {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: min(calc(100vh - 75px), 860px);
+    overflow: hidden;
+    background: var(--ink-deep);
+    color: #fff;
+  }
+  .hp-hero video {
     position: absolute;
-    top: 0%;
-    left: 0%;
+    inset: 0;
     width: 100%;
     height: 100%;
-    background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-blend-mode: overlay;
-      
-      background-repeat: no-repeat;
-}
-
-video {
+    object-fit: cover;
+  }
+  .hp-hero::after {
+    content: '';
     position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin: auto;
-    min-height: 100%;
-    min-width: 100%;
-    
-    
-    
-}
-
-.content{
-  position: absolute;
-  z-index: 0;
-  top:75%;
-  left: 10%;
-  color: white;
-  z-index: 3;
-}
-.overlay{
-  position: absolute;
-  top:0;
-  left:0;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-blend-mode: overlay;
-      
-  width: 100%;
-  height: inherit;
-  background-image: linear-gradient(to right, rgba(43, 44, 53, 0.5) 40%, 
-rgba(0,0,0,0));
-  z-index: 2;
-  clear: both;
-}
-@media (max-width: 600px) {
-  .fa-solid {
-    font-size: 22px;
+    inset: 0;
+    background:
+      linear-gradient(0deg, rgba(38, 37, 37, 0.85) 0%, rgba(38, 37, 37, 0.15) 55%),
+      linear-gradient(90deg, rgba(38, 37, 37, 0.55) 0%, rgba(38, 37, 37, 0) 60%);
   }
-  .mt-3{
-    font-size: 15px;
+
+  .hp-hero-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding-bottom: clamp(40px, 8vh, 88px);
   }
-}
-.col-md-4{
-}
-.col-md-4 a{
-  color: rgba(43, 44, 53);
-  font-size: 22px;
-}
-.col-md-4 a:hover{
-  color: rgb(0,191,111);
-}
+  .hp-hero h1 {
+    max-width: 14ch;
+    margin: 0 0 14px;
+    font-weight: 900;
+    font-size: clamp(2.6rem, 7.5vw, 5.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+  .hp-hero h1 span { color: var(--green); }
+  .hp-hero p {
+    max-width: 34rem;
+    margin: 0 0 28px;
+    font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+    line-height: 1.5;
+    color: #e4e6e4;
+  }
 
-.newsImages{
-  height: inherit;
-}
-.col-2{
-  width:6%
-}
-.h5{
-  
-}
+  .hp-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
 
-@media (max-width:1200px){
-  .what-we-do{
-    text-align: center;
-    justify-content: center;
+  .hp-btn {
+    display: inline-flex;
     align-items: center;
+    gap: 8px;
+    padding: 13px 22px;
+    border: 2px solid var(--green);
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
   }
-  .clicking{
-    padding: 75px;
-  }
-  .clicking .md-3{
-    padding: 15px;
-  }
-  .h5{
-    font-size: 15px;
-  }
-  .h1{
-    font-size: 16px;
-  }
- #what-we-do{
-  font-size: 24px;
- }
- .news{
-  display: none;
- }
- .mobile{
-  display: block !important;
- }
- .newsImage{
-  height: inherit;
-  max-height: 533px;
-  width: auto;
-  border-radius: 25px;
-  max-width: inherit;
- }
- .newsItems{
-  justify-content: center;
-  align-items: center;
-  text-align: center;
- }
-.newsImages{
-  margin: 0 auto;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
- height: inherit;
-  border-radius: 25px;
-  z-index: -29999;
-  max-height: 533px;
-  background-color: black;
-}
-#col-md-12{
-  max-height: 533px;
-}
-}
-@media (max-width:765px){
-  .slider-images{
-    margin-top: 500px;
-  }
-}
-@media (max-width:700px){
- .news{
-  display: none;
- }
- .mobile{
-  display: block !important;
- }
-#what-we-do{
-  font-size: 14px;
-  
-}
-.what-we-do{
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-}
-.h5{
-font-size: 12px;
-}
-.h1{
-  font-size: 12px;
-}
-#col-md-12{
-  max-height: 340px;
-}
-.colourthis{
-  padding: 75px 15px; 
-}
-.newsImage{
-  height: inherit;
-  max-height: 340px;
-  width: auto;
-  max-width: inherit;
-  border-radius: 25px;
-  max-width: 100%;
-  
- }
- .newsItems{
-  justify-content: center;
-  align-items: center;
-  text-align: center;
- }
-.newsImages{
-  margin: 0 auto;
-  width: 100%;
- height: inherit;
- justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  border-radius: 25px;
-  z-index: -29999;
-  max-height: 340px;
-  text-align: center;
-  max-width: 300px;
-  
-  display: flex;
-  background-color: black;
-}
-}
-#rows{
-  z-index: 888888;
-}
-.newsItems {
-    transition: opacity 1s ease-out;
-    opacity: 0;
-    height: 0;
+  .hp-btn.solid { background: var(--green); color: var(--ink-deep); }
+  .hp-btn.solid:hover { background: #fff; border-color: #fff; }
+  .hp-btn.ghost { background: transparent; color: #fff; border-color: rgba(255, 255, 255, 0.6); }
+  .hp-btn.ghost:hover { border-color: var(--green); color: var(--green); }
 
-}
+  .hp-vid-toggle {
+    position: absolute;
+    right: clamp(16px, 3vw, 32px);
+    bottom: clamp(16px, 3vw, 32px);
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    background: rgba(38, 37, 37, 0.5);
+    color: #fff;
+    cursor: pointer;
+  }
+  .hp-vid-toggle svg { width: 16px; height: 16px; }
+  .hp-vid-toggle .play { display: none; }
+  .hp-vid-toggle.is-paused .play { display: block; }
+  .hp-vid-toggle.is-paused .pause { display: none; }
 
-.newsItems.display {
-    opacity: 1;
-    object-fit: contain;
+  /* ---------- What we do ---------- */
+  .hp-about {
+    padding: clamp(56px, 9vw, 112px) 0;
+  }
+  .hp-about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: clamp(32px, 6vw, 80px);
+    align-items: start;
+  }
+  .hp-about .hp-h2 { margin-bottom: 22px; }
+  .hp-about-text p {
+    max-width: 40rem;
+    margin: 0 0 1.1em;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #3d3c3c;
+  }
+
+  .hp-themes-label {
+    margin: 0 0 14px;
+    font-weight: 700;
+    font-size: 1.05rem;
+  }
+  .hp-themes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .hp-theme {
+    display: flex;
+    align-items: center;
+    gap: 14px;
     height: 100%;
-    max-height: 100%;
-    
-}
-.mobile{
-  display: none;
-}
-
-.regular .items img{
-  height: 500px;
-  width: auto;
-}
-
-
-@media (min-width:1200px){
-  .clicking{
-    padding: 150px;
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--soft);
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 1.08rem;
+    text-decoration: none;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
   }
-  .colourthis{
-    padding: 150px;
+  .hp-theme svg {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    padding: 6px;
+    border-radius: 9px;
+    background: var(--ink);
+    color: var(--green);
+    transition: background-color 0.2s, color 0.2s;
   }
- #what-we-do{
-  font-size: 56px;
-  
- }
-  .newsImages {
-    
-    justify-content: center; 
-    align-items: center; 
-    background-color: black;
-    margin-top: 10px;
-    border-radius: 25px;
+  .hp-theme:hover {
+    border-color: var(--green);
+    background: var(--green);
+    color: var(--ink-deep);
+    transform: translateY(-2px);
+  }
+  .hp-theme:hover svg { background: var(--ink-deep); color: #fff; }
+
+  /* ---------- Photo strip ---------- */
+  .hp-strip {
+    padding: clamp(28px, 4vw, 44px) 0;
+    background: var(--ink);
     overflow: hidden;
-    width: 110%;
   }
-  
-  .newsImage {
+  .hp-strip-track {
+    display: flex;
+    gap: 16px;
+    width: max-content;
+    animation: hp-scroll 80s linear infinite;
+  }
+  .hp-strip:hover .hp-strip-track { animation-play-state: paused; }
+  .hp-strip-set {
+    display: flex;
+    gap: 16px;
+  }
+  .hp .hp-strip img {
     display: block;
-    margin: auto;
-    max-width: 100%;
-    height: 533px; 
-    object-fit: contain; 
-    border-radius: 25px; 
-    width: auto; 
+    width: auto !important;
+    height: clamp(180px, 26vw, 320px) !important;
+    max-width: none;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+  @keyframes hp-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(calc(-50% - 8px)); }
   }
 
-  .clicking .mt-3{
-    padding:25px
+  /* ---------- Latest news ---------- */
+  .hp-news {
+    padding: clamp(56px, 9vw, 112px) 0;
+    background: var(--soft);
   }
-  .clicking{
-
+  .hp-news-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+    border-bottom: 3px solid var(--green);
   }
-}
-.body{
-  overflow-x: hidden;
-  
-}
-@media (min-width:1600px){
-  .about-us{
-  height: 100vh;
-}
-}
-@media (max-width:1600px){
-  .about-us{
-  height: 150vh;
-}
-}
-@media (max-width:1500px){
-  .about-us{
-  height: 200vh;
-}
-}
-h5{
-  padding:25px;
-}
-.clicking{
-  position: relative;
-  box-shadow: inset 0px -10px 10px -10px rgba(0, 0, 0, 0.5);
-  height: inherit;
-}
+  .hp-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--ink);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .hp-more:hover { color: var(--green-dark); }
+  .hp-more svg { width: 18px; height: 18px; }
 
+  .hp-news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .hp-story {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #fff;
+    color: var(--ink);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  }
+  .hp-story:hover {
+    border-color: var(--green);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+  }
+  .hp-story-img {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #000;
+  }
+  .hp .hp-story-img img {
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none;
+    margin: 0;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+  .hp-story:hover .hp-story-img img { transform: scale(1.04); }
+  .hp-story-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px 20px 20px;
+  }
+  .hp-story time { font-size: 0.9rem; color: var(--muted); }
+  .hp-story h3 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1.3;
+  }
+  .hp-story p {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.55;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 
-.colourthis {
-  background-color: rgb(49, 48, 48);
-    overflow: visible;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.75); 
-    clip-path: inset(0px -30px 0px 0px);
-  height: inherit;
-}
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1000px) {
+    .hp-about-grid { grid-template-columns: 1fr; }
+    .hp-themes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .hp-news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .hp-news-grid li:nth-child(3) { display: none; }
+  }
+  @media (max-width: 1080px) {
+    .hp-hero { min-height: min(calc(100vh - 67px), 760px); }
+  }
+  @media (max-width: 640px) {
+    .hp-themes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .hp-theme { padding: 14px; font-size: 1rem; gap: 10px; }
+    .hp-news-grid { grid-template-columns: 1fr; }
+    .hp-news-grid li:nth-child(3) { display: block; }
+    .hp-btn { flex: 1; justify-content: center; }
+    .hp-vid-toggle { top: 16px; bottom: auto; }
+  }
 
-
-.wrapper, .container-fluid{
-  width: 100%;
-  padding-right: 0;
-  padding-left: 0;
-  margin-right: auto;
-  margin-left: auto;
-}
-.col-md-4, .col-md-8, .clicking, .colourthis {
-  z-index: auto; 
-  position: relative;
-}
-.overlapper{
-  z-index: 100000;
-}
+  @media (prefers-reduced-motion: reduce) {
+    .hp-strip { overflow-x: auto; }
+    .hp-strip-track { animation: none; }
+    .hp-strip-set[aria-hidden="true"] { display: none; }
+    .hp-theme, .hp-story, .hp-story-img img, .hp-btn { transition: none; }
+    .hp-theme:hover, .hp-story:hover { transform: none; }
+  }
 </style>
-        
-<body id="Home">
- 
-    <section class="backvid" >
-      <div  class="overlay"></div>
-      <div class="video_contain" >
-        
-      <video autoplay muted loop id="myVideo">
-        <source src="/assets/vid/newhomepage.mp4"  type="video/mp4">
-      </video>
+
+{%- assign arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>' -%}
+
+<div class="hp">
+
+  <!-- ===== Video hero ===== -->
+  <section class="hp-hero">
+    <video id="hp-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+      <source src="{{ '/assets/vid/newhomepage.mp4' | relative_url }}" type="video/mp4">
+    </video>
+
+    <div class="hp-wrap hp-hero-inner">
+      <h1>The Applied <span>Genomics</span> Centre</h1>
+      <p>For infectious diseases. Genomics, lab work and data science for tuberculosis, malaria, vectors and antimicrobial resistance.</p>
+      <div class="hp-ctas">
+        <a class="hp-btn solid" href="#research">Explore our research</a>
+        <a class="hp-btn ghost" href="{{ '/news' | relative_url }}">Latest news</a>
       </div>
-    </section> 
-      <div class="content" style="color: white;font-family: 'Roboto Serif', serif; text-shadow:  1px " >
-        <h1 class="h1">The Applied Genomics Centre</h1>
-        <p style="font-family: 'Roboto Serif', serif;"><em>For Infectious Diseases</em></p>
-       
-      </div>   
+    </div>
 
-        
-      
-      <scripts>
-        <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-        
-        <script type="text/javascript">
-          $(document).on('ready', function() {
-           
-            $(".regular").slick({
-              dots: false,
-              autoplay: true,
-              autoplay: true,
-              autoplaySpeed: 5,
-              speed: 3000,
-              pauseOnFocus: false,
-              pauseOnHover: false,
-              easing:'easOutQuint',
-              infinite: true,
-              slidesToShow: 4,
-              slidesToScroll: 1,
-              variableWidth:true
-            });
-           
-          });
-      </script>   
-    
+    <button class="hp-vid-toggle" type="button" aria-label="Pause background video">
+      <svg class="pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+      <svg class="play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+  </section>
 
-       <script src="/assets/js/jquery/src/jquery.js" ></script>
-        <script src="/assets/js/slick/slick.js" ></script>
-        <script type="text/javascript">
-          
-          $( document ).ready(function() {
-            var element = document.getElementById("do-0");
-            var element1 = document.getElementById("do-4");
-            var element2 = document.getElementById("1");
-            var element3 = document.getElementById("5");
-
-            element.classList.add('active');
-            element1.classList.add('active');
-
-            element2.classList.add('display');
-            element3.classList.add('display');
-          
-          })
-          function newsItem(a){
-            
-            var elements = document.querySelectorAll('.active');
-            var elements2 = document.querySelectorAll('.display');
-           
-            for (var i = 0; i < elements.length; i++) {
-             elements[i].classList.remove('active');
-
-            }
-            for (var i = 0; i < elements2.length; i++) {
-             elements2[i].classList.remove('display');
-
-            }
-            var id = document.getElementById("do-"+a);
-            var id2 = document.getElementById(a+1);
-            console.log(a)
-  id.classList.add('active');
-  id2.classList.add('display')
- 
-           
-          }
-          console.log($(document).width())
-          </script>
-          
-         </scripts>
-       
-    <section class="about-us area-what">
-      <div class="wrapper" style="height: inherit;" >
-        <div class="wrapper about container-fluid" style="
-        vertical-align: middle; height:inherit">
-          <div class="row" style="height: inherit;" >
-            <div class="col-md-8 colourthis" style=" overflow: hidden;" >
-              <div class=" what-we-do">
-                <h1 class="what-we-do" id="what-we-do">What we do</h1>  
-              </div>
-              <div class="text">
-                  <h5 class="h5">We are a dynamic interdisciplinary group dedicated to advancing the understanding of infectious diseases, with a particular focus on tuberculosis, malaria, and antimicrobial resistant (AMR) infections. Our approach seamlessly integrates 'omics, experimental, and big data science methodologies to provide comprehensive insights that inform critical 
-                  decision-making in public health, clinical practice, and surveillance.</h5>
-                  <h5 class="h5">Our commitment extends beyond research; we actively contribute to building genomic investigation capabilities in endemic settings. Through collaborative projects and hands-on workshops in 'omics and bioinformatics, we empower researchers and healthcare professionals, fostering a robust network that enhances our collective ability to combat infectious diseases.
-                  By bridging the gap between cutting-edge science and practical applications, we aim to make a tangible impact on global health outcomes.</h5>
-                
-              </div>     
-            </div>
-          <div class="col-md-4 clicking "style=" text-align:center;
-          " >
-          <p class="checkout">Check out our work by selecting a category below!</p>
-          <div class="row">
-            <div class="col-6 mt-3">
-              <p>Malaria</p>
-              <a href="{{site.url}}/themes/malaria"><i class="fa-solid fa-mosquito-net fa-2x" ></i></a>
-            </div>
-            
-            <div class="col-6 mt-3">
-              <p>TB</p>
-              <a href="{{site.url}}/themes/tuberculosis"><i class="fa-solid fa-bacterium fa-2x"></i></a>
-            </div>
-            
-          </div>
-          <div class="row">
-            <div class="col-6 mt-3">
-              <p>Vectors</p>
-              <span><a href="{{site.url}}/themes/vectors"><i class="fa-solid fa-disease fa-2x"></i></a></span>
-            </div>
-            
-            <div class="col-6 mt-3">
-              <p>AMR</p>
-              <span><a href="{{site.url}}/themes/AMR"><i class="fa-solid fa-disease fa-2x"></i></a></span>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-6 mt-3">
-              <p>Viruses</p>
-              <span><a href="{{site.url}}/themes/viruses"><i class="fa-solid fa-virus-covid fa-2x"></i></a></span>
-            </div>
-            <div class="col-6 mt-3">
-              <p>Software</p>
-              <span><a href="{{site.url}}/themes/software"><i class="fa-solid fa-computer fa-2x"></i></a></span>
-            </div>
-          </div>
-          </div>
-          </div>       
-        </div>
-      </div>
-    </section> 
-    <section class="slider-images">
-      <div class="regular slider">
-        {% assign images = site.static_files | where_exp: "file", "file.path contains 'img/homepage'" %}
-        {% assign n = images | size %}
-        {% assign shuffled_images = images | sample: n %}
-        {% for image in shuffled_images %}
-          {% unless image.path contains '-768' or image.path contains '-480' or image.path contains '-1600' %}
-            {% assign filename_parts = image.path | split: "." %}
-            {% assign filename = filename_parts.first %}
-            {% if filename contains "-480" or filename contains "-768" or filename contains "-1600" %}
-              {% continue %}
-            {% endif %}
-            <div class="items">
-              <img src="{{ site.baseurl }}{{ image.path }}" alt="image" loading="lazy"
-                srcset="{{ site.baseurl }}{{ filename }}-480.webp 480w,
-                        {{ site.baseurl }}{{ filename }}-768.webp 768w,
-                        {{ site.baseurl }}{{ filename }}-1600.webp 1600w"
-                sizes="(max-width: 480px) 100vw,
-                       (max-width: 768px) 50vw,
-                       33.3vw" />
-            </div>
-          {% endunless %}
-        {% endfor %}
-      </div>
-      
-    </section>
-        <div class="wrapper news" style="margin-top: 150px;">
-            <div class="container-fluid"  style="width:90%;margin-left: 5%; ">
-                <div class="row">
-                <div style=" overflow: hidden;  position: relative; margin-top: 50px; margin-bottom: 50px;text-align: center;
-                  vertical-align: middle;"  >
-                    <img class="logo" src="/assets/img/logo/logo.png" style="width: 300px;height:auto">
-              <h1 class="text-align" style="justify-content: center; align-items:center;
-              color: rgb(0,191,111); letter-spacing: .2rem;font-family: 'Abril Fatface', cursive;" id="news" >LATEST NEWS</h1>
-            
-           
-            </div>
-           <div class="col-md-4 overlapper" style="margin-top:10px">
-            
-            <div class="newsImages" >
-              {% for post in site.posts  limit:3 %}
-                {% assign my_counter = my_counter | plus: 1 %}
-    
-                {% assign image = post.pid  %}
-                <div class="newsItems" id="{{my_counter}}">
-                  <img class="newsImage" src="{{ site.baseurl }}/assets/img/newspics/{{ image }}.webp" alt="image" loading="lazy" 
-                   sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33.3vw" 
-                   srcset="{{ site.baseurl }}/assets/img/newspics/{{ image }}-480.webp 480w,
-                   {{ site.baseurl }}/assets/img/newspics/{{ image }}-768.webp 768w,
-                   {{ site.baseurl }}/assets/img/newspics/{{ image }}-1600.webp 1600w" />
-                </div>
-             {% endfor %}
-            </div>
-           </div>
-           
-        <div class="col-md-8 " style="background-color: rgb(240, 240, 240); border-radius: 25px;">
-          <div class="row"  >
-            <div class="col-2 " >  
-            </div>
-            <div class="col" id="dont">
-            </div>
-            {% assign newCounter = 0 %}
-            {% for post in site.posts  limit:3 %}
-                
-    
-                {% assign image = post.pid  %}
-                {% if post.link != "none" %}
-                {% assign link = post.link %}
-                {% else %}
-                {% assign link = post.url %}
-              
-                {% endif %}
-          <div class="row" >
-            
-                <div class="col-2 ">
-                </div>
-                <div class="col "id="do-{{newCounter}}" onclick="newsItem({{newCounter}})" >
-                  <p class="" >{{post.titleForBox}}</p>
-                </div>
-               
-            
-           
-          </div>
-          {% assign newCounter = newCounter | plus: 1 %}
-          {% endfor %}
-         
-
-          <div class="row" >
-            <div class="col-2 ">
-            </div>
-            <div class="col" id="dont" >
-            </div>
-        </div>
-          </div></div>
-
-
-                </div>
-            </div>
-        </div>
-
-        <div class="mobile" style="margin-top: 150px;">
-          {% assign my_counter = 4 %}
-          <div class="container-fluid"  style="width:90%;margin-left: 5%; ">
-              <div class="row">
-              <div style=" overflow: hidden;  position: relative; margin-top: 50px; margin-bottom: 50px;text-align: center;
-                vertical-align: middle; " >
-                  <img class="logo" src="/assets/img/logo/logo.png" style="width: 200px;height:200px">
-            <h1 class="text-align" style="justify-content: center; align-items:center;
-            color: rgb(0,191,111); letter-spacing: .2rem;font-family: 'Abril Fatface', cursive;" id="news" >LATEST NEWS</h1>
-          
-         
-          </div>
-         <div class="col-md-12" id="col-md-12" >
-          
-          <div class="newsImages" >
-            {% for post in site.posts  limit:3 %}
-              {% assign my_counter = my_counter | plus: 1 %}
-  
-              {% assign image = post.pid  %}
-              <div class="newsItems" id="{{my_counter}}">
-                <img class="newsImage" src="{{ site.baseurl }}/assets/img/newspics/{{ image }}.webp" alt="image" loading="lazy" 
-                 sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33.3vw" 
-                 srcset="{{ site.baseurl }}/assets/img/newspics/{{ image }}-480.webp 480w,
-                 {{ site.baseurl }}/assets/img/newspics/{{ image }}-768.webp 768w,
-                 {{ site.baseurl }}/assets/img/newspics/{{ image }}-1600.webp 1600w" />
-              </div>
-           {% endfor %}
-          </div>
-         </div>
-         
-      <div class="col-md-12 " style="background-color: rgb(240, 240, 240); border-radius: 25px;">
-        <div class="row" >
-          <div class="col-2 " >  
-          </div>
-          <div class="col" id="dont">
-          </div>
-          {% assign newCounter = 4 %}
-          {% for post in site.posts  limit:3 %}
-              
-  
-              {% assign image = post.pid  %}
-              {% if post.link != "none" %}
-              {% assign link = post.link %}
-              {% else %}
-              {% assign link = post.url %}
-            
-              {% endif %}
-        <div class="row" id="rows" >
-          
-              <div class="col-2 ">
-              </div>
-              <div class="col "id="do-{{newCounter}}" onclick="newsItem({{newCounter}})" >
-                <p class="" >{{post.titleForBox}}</p>
-              </div>
-             
-          
-         
-        </div>
-        {% assign newCounter = newCounter | plus: 1 %}
-        {% endfor %}
-       
-
-        <div class="row" >
-          <div class="col-2 ">
-          </div>
-          <div class="col" id="dont" >
-          </div>
-      </div>
-        </div></div>
-
-
-              </div>
-          </div>
+  <!-- ===== What we do ===== -->
+  <section class="hp-about" id="research">
+    <div class="hp-wrap hp-about-grid">
+      <div class="hp-about-text">
+        <h2 class="hp-h2">What we <span>do</span></h2>
+        <p>
+          We are an interdisciplinary group working to understand infectious diseases, with a focus on
+          tuberculosis, malaria and antimicrobial-resistant (AMR) infections. We combine 'omics,
+          laboratory experiments and big data science to inform decisions in public health, clinical
+          practice and surveillance.
+        </p>
+        <p>
+          We also help build genomic capacity in endemic settings. Through collaborative projects and
+          hands-on workshops in 'omics and bioinformatics, we train researchers and healthcare
+          professionals and grow a network that strengthens our shared response to infectious disease.
+        </p>
       </div>
 
-</body>
-           
+      <div>
+        <p class="hp-themes-label">Explore our work</p>
+        <ul class="hp-themes">
+          <li><a class="hp-theme" href="{{ '/themes/malaria' | relative_url }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="13" rx="2.2" ry="5"/><path d="M12 8V5M10.5 4l1.5 1 1.5-1M10 11 5 8M14 11l5-3M10 14l-5 2M14 14l5 2M11 18l-2 3M13 18l2 3"/></svg>
+            Malaria</a></li>
+          <li><a class="hp-theme" href="{{ '/themes/tuberculosis' | relative_url }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="9" width="18" height="6" rx="3" transform="rotate(-30 12 12)"/><path d="M9 11.5l1 .5M12 10l1 .5M14.5 12.5l1 .5"/></svg>
+            Tuberculosis</a></li>
+          <li><a class="hp-theme" href="{{ '/themes/vectors' | relative_url }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="14" rx="4" ry="5.5"/><circle cx="12" cy="7" r="2"/><path d="M8.5 11 4 9M15.5 11 20 9M8 14H3.5M16 14h4.5M8.5 17 5 20M15.5 17l3.5 3M11 5.5 9.5 3M13 5.5 14.5 3"/></svg>
+            Vectors</a></li>
+          <li><a class="hp-theme" href="{{ '/themes/amr' | relative_url }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="8.5" width="19" height="7" rx="3.5" transform="rotate(-45 12 12)"/><path d="m9.5 9.5 5 5"/></svg>
+            AMR</a></li>
+          <li><a class="hp-theme" href="{{ '/themes/viruses' | relative_url }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 7V3M12 21v-4M7 12H3M21 12h-4M8.5 8.5 5.6 5.6M18.4 18.4l-2.9-2.9M8.5 15.5l-2.9 2.9M18.4 5.6l-2.9 2.9"/><circle cx="12" cy="3" r=".8" fill="currentColor"/><circle cx="12" cy="21" r=".8" fill="currentColor"/><circle cx="3" cy="12" r=".8" fill="currentColor"/><circle cx="21" cy="12" r=".8" fill="currentColor"/></svg>
+            Viruses</a></li>
+          <li><a class="hp-theme" href="{{ '/themes/software' | relative_url }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg>
+            Software</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Photo strip (rendered twice so the scroll loops seamlessly) ===== -->
+  {%- assign photos = site.static_files | where_exp: "f", "f.path contains '/img/homepage/'" -%}
+  {%- capture strip -%}
+    {%- for f in photos -%}
+      {%- if f.basename contains '-480' or f.basename contains '-768' or f.basename contains '-1600' -%}{%- continue -%}{%- endif -%}
+      {%- assign stem = f.path | remove: f.extname -%}
+      <img src="{{ f.path | relative_url }}" alt="" loading="lazy" decoding="async"
+           srcset="{{ stem | append: '-480.webp' | relative_url }} 480w, {{ stem | append: '-768.webp' | relative_url }} 768w, {{ stem | append: '-1600.webp' | relative_url }} 1600w"
+           sizes="(max-width: 640px) 70vw, 30vw">
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- if photos.size > 0 -%}
+  <section class="hp-strip" aria-label="Photos from our work">
+    <div class="hp-strip-track">
+      <div class="hp-strip-set">{{ strip }}</div>
+      <div class="hp-strip-set" aria-hidden="true">{{ strip }}</div>
+    </div>
+  </section>
+  {%- endif -%}
+
+  <!-- ===== Latest news ===== -->
+  <section class="hp-news">
+    <div class="hp-wrap">
+      <div class="hp-news-head">
+        <h2 class="hp-h2">Latest <span>news</span></h2>
+        <a class="hp-more" href="{{ '/news' | relative_url }}">All news {{ arrow }}</a>
+      </div>
+
+      <ul class="hp-news-grid">
+        {%- for post in site.posts limit: 3 -%}
+          {%- if post.link and post.link != "none" -%}{%- assign link = post.link -%}{%- else -%}{%- assign link = post.url | relative_url -%}{%- endif -%}
+          <li>
+            <a class="hp-story" href="{{ link }}">
+              <span class="hp-story-img">
+                <img src="{{ '/assets/img/newspics/' | append: post.pid | append: '.webp' | relative_url }}" alt="" loading="lazy">
+              </span>
+              <span class="hp-story-body">
+                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %B %Y" }}</time>
+                <h3>{{ post.titleForBox | default: post.title }}</h3>
+                {% if post.brief %}<p>{{ post.brief | strip_html }}</p>{% endif %}
+              </span>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </section>
+</div>
+
+<script>
+  // Background video: pause button, and stay still for people who prefer less motion
+  (function () {
+    var video = document.getElementById('hp-video');
+    var btn = document.querySelector('.hp-vid-toggle');
+    if (!video || !btn) return;
+
+    function setPaused(paused) {
+      if (paused) { video.pause(); } else { video.play().catch(function () {}); }
+      btn.classList.toggle('is-paused', paused);
+      btn.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video');
+    }
+
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      video.removeAttribute('autoplay');
+      setPaused(true);
+    }
+
+    btn.addEventListener('click', function () { setPaused(!video.paused); });
+  })();
+</script>

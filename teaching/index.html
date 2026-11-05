@@ -13,7 +13,7 @@ title: Teaching
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link
-        href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap"
         rel="stylesheet"
       />
       <link
@@ -24,10 +24,6 @@ title: Teaching
       />
       <link rel="stylesheet" href="assets/js/slick/slick-theme.css" />
       <link rel="stylesheet" href="assets/js/slick/slick.css" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Heebo:wght@900&display=swap"
-        rel="stylesheet"
-      />
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
@@ -47,10 +43,6 @@ title: Teaching
       <link
         rel="stylesheet"
         href="https://use.fontawesome.com/releases/v6.1.1/css/all.css"
-      />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Gelasio:wght@700&display=swap"
-        rel="stylesheet"
       />
     </links>
   </head>
@@ -95,8 +87,8 @@ title: Teaching
       margin: 0 1rem 0 0;
       z-index: 220;
       border-radius: 50%;
-      background-color: #4a90e2;
-      color: #fff;
+      background-color: rgb(0, 191, 111);
+      color: #262525;
       font-size: 1rem;
       line-height: 42px;
       text-align: center;
@@ -185,10 +177,11 @@ title: Teaching
       height: 42px;
 
       border-radius: 50%;
-      background-color: #4a90e2;
-      color: #fff;
-
+      background-color: rgb(0, 191, 111);
+      color: #262525;
+      text-align: center;
       line-height: 42px;
+      transition: background-color 0.2s, color 0.2s;
     }
 
     .btn-outline-success {
@@ -291,7 +284,7 @@ title: Teaching
       color: white;
       padding: 5px;
       font-size: 10px;
-      font-family: "Gelasio", serif;
+      font-family: "Heebo", system-ui, sans-serif;
     }
     .capacityText h2 {
       font-size: 40px;
@@ -323,7 +316,7 @@ title: Teaching
       color: white;
       padding: 5px;
       font-size: 14px;
-      font-family: "Gelasio", serif;
+      font-family: "Heebo", system-ui, sans-serif;
     }
     .capacityText h2 {
       font-size: 40px;
@@ -356,7 +349,7 @@ title: Teaching
       color: white;
       padding: 5px;
       font-size: 14px;
-      font-family: "Gelasio", serif;
+      font-family: "Heebo", system-ui, sans-serif;
     }
     .fa-solid{
       font-size: 20px;
@@ -383,7 +376,7 @@ title: Teaching
       color: white;
       padding: 5px;
       font-size: 18px;
-      font-family: "Gelasio", serif;
+      font-family: "Heebo", system-ui, sans-serif;
     }
     .capacityText h2 {
       font-size: 40px;
@@ -423,7 +416,7 @@ title: Teaching
       color: white;
       padding: 20px;
       font-size: 20px;
-      font-family: "Gelasio", serif;
+      font-family: "Heebo", system-ui, sans-serif;
     }
     
     .first-text {
@@ -458,11 +451,11 @@ title: Teaching
       display: inline-block;
       color: white;
       padding: 20px;
-      font-family: "Gelasio", serif;
+      font-family: "Heebo", system-ui, sans-serif;
     }
     }
     .capacityText h2 {
-      font-family: "Gelasio", serif;
+      font-family: "Heebo", system-ui, sans-serif;
       color: white;
     }
 .workshops{
@@ -472,7 +465,7 @@ title: Teaching
 }
     .first-text {
 
-      font-family: "Gelasio", serif;
+      font-family: "Heebo", system-ui, sans-serif;
       letter-spacing: 1.5px;
     }
     .first-text p {
@@ -508,6 +501,126 @@ title: Teaching
     }
     
     
+
+    /* ---- type + colour refresh ---- */
+    #Capacity, #Capacity h2, #Capacity h4, #Capacity p, #Capacity a {
+      font-family: "Heebo", system-ui, sans-serif;
+    }
+    .capacityText h2 {
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 0.95;
+      margin: 0;
+    }
+    .capacityText h2 + h2 {
+      color: rgb(0, 191, 111);
+    }
+    .first-text {
+      letter-spacing: 0;
+      color: #313030;
+    }
+    .first-text p {
+      max-width: 60ch;
+      font-weight: 500;
+      line-height: 1.5;
+      font-size: clamp(1.15rem, 2.2vw, 1.6rem);
+      padding-left: 18px;
+      border-left: 4px solid rgb(0, 191, 111);
+    }
+    .workshops h4 {
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+    .workshops a {
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .workshops a:hover,
+    .workshops a:hover h4 {
+      color: rgb(0, 191, 111);
+    }
+    .workshops .fa-solid {
+      transition: transform 0.2s;
+    }
+    .workshops a:hover .fa-solid {
+      transform: translateX(4px);
+    }
+    .workshops p.text {
+      font-weight: 400;
+      line-height: 1.55;
+      color: #d6d8d6;
+      padding-left: 20px;
+      border-left: 4px solid rgb(0, 191, 111);
+    }
+    .col-12 {
+      box-shadow: none;
+      border-left: 6px solid rgb(0, 191, 111);
+    }
+
+    /* testimonials */
+    .opinions .text-aligns {
+      font-weight: 900;
+      font-size: clamp(1.4rem, 2.8vw, 2rem);
+      line-height: 1.2;
+      color: #313030;
+      padding-bottom: 12px;
+      border-bottom: 3px solid rgb(0, 191, 111);
+      display: table;
+      margin: 0 auto;
+    }
+    .testimonials__list-item {
+      border: 1px solid #e2e4e2;
+      border-radius: 14px;
+      max-width: 80vw;
+      box-shadow: 0 8px 24px rgba(38, 37, 37, 0.06);
+    }
+    .testimonials__list-item p {
+      font-weight: 500;
+      line-height: 1.5;
+      color: #313030;
+      border-bottom: 3px solid rgb(0, 191, 111);
+    }
+    .owl-nav button:hover .fa {
+      background-color: #313030;
+      color: #fff;
+    }
+    .owl-nav button:focus-visible {
+      outline: 3px solid rgb(0, 191, 111);
+      outline-offset: 3px;
+    }
+    @media (max-width: 600px) {
+      .capacityText h2 {
+        padding-left: 24px !important;
+        margin-left: 0 !important;
+        font-size: clamp(2.2rem, 11vw, 3rem) !important;
+      }
+      .workshops h4 { font-size: 1.15rem !important; }
+      .workshops p.text { font-size: 0.95rem !important; padding-left: 14px; }
+      .workshops .fa-solid { font-size: 26px !important; }
+      .first-part, .second-part { display: block; width: 100%; }
+      .second-part { margin-top: 8px; }
+      .testimonials__list-item { width: calc(100vw - 40px) !important; max-width: none; }
+      .owl-item { padding-right: 0; }
+      .owl-carousel { flex-direction: column !important; }
+      .owl-nav { display: flex; justify-content: center; gap: 14px; margin-top: 18px; }
+      .owl-prev, .owl-next { position: relative !important; top: auto !important; left: auto !important; width: 42px !important; height: 42px; }
+      .owl-nav .fa { position: relative !important; display: block; }
+      .firstPart {
+        padding-top: 280px;
+        padding-bottom: 160px;
+        background-attachment: scroll;
+      }
+    }
+    @media (max-width: 800px) {
+      .testimonials__list-item {
+        height: auto;
+        min-height: 260px;
+      }
+      .testimonials__list-item p {
+        font-size: 16px;
+      }
+    }
   </style>
 
   <body id="Capacity">
@@ -678,12 +791,15 @@ title: Teaching
             responsive: {
               0: {
                 items: 1,
+                stagePadding: 0,
               },
               600: {
                 items: 1,
+                stagePadding: 80,
               },
               1000: {
                 items: 1,
+                stagePadding: 250,
               },
             },
             navText: [
@@ -726,6 +842,8 @@ title: Teaching
 	        });
 
 	    });
+
+	    $(window).trigger('scroll');
 
 	});
         </script>

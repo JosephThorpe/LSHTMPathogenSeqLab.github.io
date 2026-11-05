@@ -2,197 +2,386 @@
 layout: default
 title: Publications
 ---
-<html id="top">
-  <head>
-
-  </head>
-  <!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) — move to the default layout if every page should be tracked -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQRDTXMLDY"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-FQRDTXMLDY');
 </script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
+
 <style>
-    .yearList li{
-        width: 12.5%;
-        float: left;
-        display: inline;
-    }
-    .text-align h1 {
-  color:white; font-family: 'Heebo', sans-serif; bottom: 0; right: 0; position: absolute; margin-right: 40px;
-}
-.main p{
-    text-align: center;
-}
-@media (max-width: 900px) {
-    .text-align h1 {
-  color:white;  font-size: 20px; font-family: 'Heebo', sans-serif; bottom: 0; right: 0; position: absolute; margin-right: 20px;
-}
-
-}
-i {
-    font-size: 22px;
-}
-hr{
-  color: rgb(0,191,111);
-}
-
-.arrow-container {
-    position: fixed;
-    bottom: 50px;
-    right: 150px;
-    
-    cursor: pointer;
-    color: rgb(0,191,111);
-    z-index: 10;
-  
-  } 
-  .fa-arrow-up{
-    font-size: 40px;
-    
+  .pb {
+    --green: #00bf6f;
+    --green-dark: #009a59;
+    --ink: #313030;
+    --ink-deep: #262525;
+    --soft: #f5f6f5;
+    --line: #e2e4e2;
+    --muted: #6a6d6b;
+    font-family: 'Heebo', system-ui, sans-serif;
+    color: var(--ink);
+    background: #fff;
   }
-  footer {
-    z-index: 9; 
-  
-}
-#unselectable{
-  -moz-user-select: -moz-none;
-   -khtml-user-select: none;
-   -webkit-user-select: none;
-   -ms-user-select: none;
-   user-select: none;
-   cursor: pointer;
-}
-@media (max-width: 800px) {
-  .text-align{
-  
-  width: 300px; 
- 
- }
- 
-}
-@media only screen and (min-width: 800px) and (max-width: 1000px) {
-  .text-align{
-  
-  width: 500px; 
- 
- }
-}
-@media (min-width: 1000px) {
-  .text-align{
-  
-  width: 700px; 
- 
- }
-}
-.text-align{
-  box-shadow: 0 1px 6px rgb(255,255,255,0.3), 0 1px 4px rgba(255,255,255,0.2);
-  background-color:rgb(0,191,111);
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  
-  height: 100px;
- }
-</style>
-<head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <links>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@900&display=swap" rel="stylesheet"> </links>
- 
-<scripts>
-  <script src="https://kit.fontawesome.com/f8a9821c7d.js" crossorigin="anonymous"></script>
-</scripts>
-</head>
+  .pb *, .pb *::before, .pb *::after { box-sizing: border-box; }
+  .pb [hidden] { display: none !important; }
 
- 
-<body id="publications">
-    <div class="main">
-        {% assign my_array = "" | split: ',' %}
-        <section class="heading" style="background-color:  rgb(49,48,48);height: 25vh; position: relative;">
-            <div class="container" >
-                <div class="text-align" >
-                    <h1 >PUBLICATIONS</h1>
-                </div>
-                
-            
-        </section>
-   
-    <div class="container" style="margin-top: 75px;" id="years">{% assign my_counter = 0 %}
-        <p style="width: fit-content;">The genomics centre has published in the most prestigious and scientific journals for the entire world. Our goal is to improve the global understanding of infectious diseases and improve healthcare and learning worldwide.</p>
-        <h3 style="display: inline;">Search for publications by year</h3>
-        <div class="container" style="height: 100px; margin-top: 50px;">
-            <ul class="yearList" style="height: 100px;list-style: none;box-sizing: border-box;
-             text-align: center;
-             padding: 0; " >
-                {% for pub in site.data.publications %}
-                {% unless my_array contains pub.article_year %}
-                {% assign my_array = my_array | push: pub.article_year | sort | reverse %}
-                {% endunless %}
-                {% endfor %}
-                {% for item in my_array %}
-                <li>
-                  <a class="{{item}}" id="unselectable" > {{item}}</a>
-                </li>
-                {% endfor %}
-            
-            </ul>
-            </ul>
-        </div>
-        {% for year in my_array %}
-  <div class="divvy" id="{{ year }}" style="display:none;  ">
-    <ul style="list-style: none;box-sizing: border-box;
+  .pb-wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 clamp(16px, 4vw, 48px);
+  }
+
+  .pb a:focus-visible,
+  .pb button:focus-visible,
+  .pb input:focus-visible {
+    outline: 3px solid var(--green);
+    outline-offset: 2px;
+  }
+
+  /* ---------- Header ---------- */
+  .pb-hero {
+    padding: clamp(36px, 7vw, 72px) 0 clamp(32px, 5vw, 56px);
+    background: var(--ink);
+    color: #fff;
+  }
+  .pb-hero h1 {
+    margin: 0 0 16px;
+    font-weight: 900;
+    font-size: clamp(2.2rem, 5.5vw, 3.75rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .pb-hero p {
+    max-width: 42rem;
+    margin: 0;
+    font-size: clamp(1rem, 1.6vw, 1.15rem);
+    line-height: 1.6;
+    color: #d6d8d6;
+  }
+  .pb-hero strong { color: var(--green); font-weight: 700; }
+
+  /* ---------- Filter bar ---------- */
+  .pb-tools {
+    position: sticky;
+    top: 75px;               /* sits under the sticky navbar */
+    z-index: 5;
+    padding: 14px 0;
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--line);
+    backdrop-filter: blur(6px);
+  }
+
+  .pb-search {
+    position: relative;
+    margin-bottom: 12px;
+  }
+  .pb-search svg {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    transform: translateY(-50%);
+    color: var(--muted);
+    pointer-events: none;
+  }
+  .pb-search input {
+    width: 100%;
+    height: 46px;
+    padding: 0 14px 0 42px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--soft);
+    color: var(--ink);
+    font: inherit;
+    font-size: 1rem;
+  }
+  .pb-search input:focus { background: #fff; border-color: var(--green); outline: none; }
+
+  .pb-years {
+    display: flex;
+    gap: 6px;
+    margin: 0;
+    padding: 0 0 20px;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+  .pb-years button {
+    flex-shrink: 0;
+    height: 36px;
+    padding: 0 14px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--ink);
+    font: inherit;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: border-color 0.15s, background-color 0.15s;
+  }
+  .pb-years button:hover { border-color: var(--green); }
+  .pb-years button[aria-pressed="true"] {
+    border-color: var(--green);
+    background: var(--green);
+    color: var(--ink-deep);
+    font-weight: 700;
+  }
+
+  .pb-count {
+    margin: 10px 0 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  /* ---------- List ---------- */
+  .pb-list { padding: clamp(24px, 4vw, 40px) 0 clamp(56px, 8vw, 88px); }
+
+  .pb-year {
+    scroll-margin-top: 220px;
+  }
+  .pb-year + .pb-year { margin-top: 40px; }
+  .pb-year h2 {
+    margin: 0 0 6px;
+    padding-bottom: 8px;
+    border-bottom: 3px solid var(--green);
+    font-weight: 900;
+    font-size: 1.6rem;
+  }
+
+  .pb-items { margin: 0; padding: 0; list-style: none; }
+
+  .pb-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 6px 24px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .pb-title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.08rem;
+    line-height: 1.4;
+  }
+  .pb-title a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .pb-title a:hover {
+    color: var(--green-dark);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .pb-authors {
+    margin: 4px 0 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--muted);
+  }
+  .pb-journal {
+    margin: 4px 0 0;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  .pb-link {
+    align-self: start;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border: 1px solid var(--ink);
+    border-radius: 8px;
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 0.92rem;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .pb-link:hover { border-color: var(--green); background: var(--green); color: var(--ink-deep); }
+  .pb-link svg { width: 14px; height: 14px; }
+
+  .pb-empty {
+    padding: 48px 0;
     text-align: center;
-    padding: 0; ">
-      {% for publication in site.data.publications %}
-      {% if publication.article_year == year %}
-      <li style="border: 1px solid rgb(0,191,111); margin-bottom: 50px;  padding: 20px; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);" ><h4 style="margin-bottom: 40px;">{{ publication.article_title }}</h4>
-      
-      <p>{{publication.article_authors}}</p>
-      <p>{{publication.article_publication}}</p>
-      <div class="buttons" style="margin:10px;">
-        <button type="button"  class="btn btn-outline-dark" onclick="window.location.href='{{publication.article_link}}'">Link to paper
-          &nbsp;<i class="fa-solid fa-right-from-bracket "></i></button>
-        </div>
-      </li>
-      
-      {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
-  {% endfor %}
-</div>
-</div>
-<div class="arrow-container" onclick="document.getElementById('top').scrollIntoView()">
-  <i class="fas fa-arrow-up" title="Back to the top"></i>
-</div>      
+    color: var(--muted);
+  }
+
+  /* ---------- Back to top ---------- */
+  .pb-top {
+    position: fixed;
+    right: clamp(16px, 3vw, 32px);
+    bottom: clamp(16px, 3vw, 32px);
+    z-index: 20;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--green);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+  }
+  .pb-top.is-visible { opacity: 1; visibility: visible; }
+  .pb-top svg { width: 22px; height: 22px; }
+
+  /* ---------- Phone ---------- */
+  @media (max-width: 1080px) {
+    .pb-tools { top: 67px; }
+  }
+  @media (max-width: 640px) {
+    .pb-item { grid-template-columns: 1fr; }
+    .pb-link { justify-self: start; margin-top: 6px; }
+    .pb-tools { position: static; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pb-years button, .pb-link, .pb-top { transition: none; }
+  }
+</style>
+
+{%- assign by_year = site.data.publications | group_by: "article_year" | sort: "name" | reverse -%}
+{%- capture ext -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg>{%- endcapture -%}
+
+<div class="pb">
+
+  <header class="pb-hero">
+    <div class="pb-wrap">
+      <h1>Publications</h1>
+      <p>
+        <strong>{{ site.data.publications | size }} papers</strong> on the genomics of infectious diseases,
+        from pathogen and vector genomics to the software that analyses them.
+      </p>
     </div>
-    
+  </header>
+
+  <div class="pb-tools">
+    <div class="pb-wrap">
+      <label class="pb-search">
+        <span class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Search publications</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="search" id="pb-q" placeholder="Search by title, author or journal" autocomplete="off">
+      </label>
+
+      <ul class="pb-years" aria-label="Filter by year">
+        {%- for group in by_year -%}
+          <li><button type="button" data-year="{{ group.name }}" aria-pressed="false">{{ group.name }}</button></li>
+        {%- endfor -%}
+      </ul>
+
+      <p class="pb-count" id="pb-count" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <main class="pb-list">
+    <div class="pb-wrap">
+      {%- for group in by_year -%}
+        <section class="pb-year" id="y{{ group.name }}" data-year="{{ group.name }}">
+          <h2>{{ group.name }}</h2>
+          <ul class="pb-items">
+            {%- for pub in group.items -%}
+              <li class="pb-item"
+                  data-text="{{ pub.article_title | append: ' ' | append: pub.article_authors | append: ' ' | append: pub.article_publication | strip_html | downcase | escape }}">
+                <div>
+                  <h3 class="pb-title">
+                    {% if pub.article_link %}<a href="{{ pub.article_link }}" target="_blank" rel="noopener">{{ pub.article_title }}</a>{% else %}{{ pub.article_title }}{% endif %}
+                  </h3>
+                  {% if pub.article_authors %}<p class="pb-authors">{{ pub.article_authors }}</p>{% endif %}
+                  {% if pub.article_publication %}<p class="pb-journal">{{ pub.article_publication }}</p>{% endif %}
+                </div>
+                {% if pub.article_link %}
+                  <a class="pb-link" href="{{ pub.article_link }}" target="_blank" rel="noopener">Read paper {{ ext }}</a>
+                {% endif %}
+              </li>
+            {%- endfor -%}
+          </ul>
+        </section>
+      {%- endfor -%}
+
+      <p class="pb-empty" id="pb-empty" hidden>No publications match your search.</p>
+    </div>
+  </main>
+
+  <button class="pb-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+  </button>
 </div>
 
 <script>
-  
-    for (let i =2001; i<2035;i++){
-      
-    $("."+i).click(function(event) {
-      
-  $(".divvy").each(function(){
-  $(this).slideUp(500)
-  
-        
-});
-      var id = $('#'+i) 
-      id.slideDown(2000)
-      
-})
-    }
-  
+  (function () {
+    var q        = document.getElementById('pb-q');
+    var countEl  = document.getElementById('pb-count');
+    var emptyEl  = document.getElementById('pb-empty');
+    var yearBtns = Array.prototype.slice.call(document.querySelectorAll('.pb-years button'));
+    var groups   = Array.prototype.slice.call(document.querySelectorAll('.pb-year'));
+    var total    = document.querySelectorAll('.pb-item').length;
+    var year     = '';
 
-  
-  </script>
-</body>
+    function apply() {
+      var term = q.value.trim().toLowerCase();
+      var shown = 0;
+
+      groups.forEach(function (g) {
+        var inYear = !year || g.dataset.year === year;
+        var visibleInGroup = 0;
+        g.querySelectorAll('.pb-item').forEach(function (item) {
+          var match = inYear && (!term || item.dataset.text.indexOf(term) !== -1);
+          item.hidden = !match;
+          if (match) visibleInGroup++;
+        });
+        g.hidden = visibleInGroup === 0;
+        shown += visibleInGroup;
+      });
+
+      emptyEl.hidden = shown !== 0;
+      countEl.textContent = shown === total
+        ? total + ' publications'
+        : 'Showing ' + shown + ' of ' + total + ' publications';
+    }
+
+    yearBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        year = btn.dataset.year;
+        yearBtns.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
+        apply();
+        history.replaceState(null, '', year ? '#y' + year : location.pathname);
+      });
+    });
+
+    var t;
+    q.addEventListener('input', function () { clearTimeout(t); t = setTimeout(apply, 120); });
+
+    // Deep link: /publications/#y2024
+    var m = location.hash.match(/^#y(\d{4})$/);
+    if (m) {
+      var b = yearBtns.filter(function (x) { return x.dataset.year === m[1]; })[0];
+      if (b) b.click();
+    }
+    apply();
+
+    // Back-to-top button appears after scrolling
+    var top = document.querySelector('.pb-top');
+    window.addEventListener('scroll', function () {
+      top.classList.toggle('is-visible', window.scrollY > 600);
+    }, { passive: true });
+    top.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    });
+  })();
+</script>

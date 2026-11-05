@@ -2,164 +2,366 @@
 layout: default
 title: Funding
 ---
-
-<links>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@900&display=swap" rel="stylesheet"> </links>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
-body{
-    overflow-x: hidden;
-}
-.text-align h1 {
-  color:white;   font-family: 'Heebo', sans-serif; bottom: 0; right: 0; position: absolute; margin-right: 40px;
-}
-.team-list{
-    font-family: "Mercury Text G1 A","Mercury Text G1 B",serif;
-font-style: italic;
-display: inline;
-cursor: pointer;
-margin: 20px;
+  .fd {
+    --green: #00bf6f;
+    --green-dark: #009a59;
+    --ink: #313030;
+    --ink-deep: #262525;
+    --soft: #f5f6f5;
+    --line: #e2e4e2;
+    --muted: #6a6d6b;
+    font-family: 'Heebo', system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--soft);
+  }
+  .fd *, .fd *::before, .fd *::after { box-sizing: border-box; }
+  .fd [hidden] { display: none !important; }
 
+  .fd-wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 clamp(16px, 4vw, 48px);
+  }
 
+  .fd a:focus-visible,
+  .fd button:focus-visible {
+    outline: 3px solid var(--green);
+    outline-offset: 3px;
+  }
 
+  /* ---------- Header ---------- */
+  .fd-hero {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(40px, 8vw, 88px) 0 clamp(40px, 7vw, 80px);
+    background: var(--ink);
+    color: #fff;
   }
-  #currText{
-    font-weight: 700;
+
+  /* Big green outlined "thank you" mark in the corner */
+  .fd-hero::after {
+    content: '';
+    position: absolute;
+    right: -120px;
+    top: 50%;
+    width: 420px;
+    height: 420px;
+    border: 40px solid var(--green);
+    border-radius: 50%;
+    opacity: 0.14;
+    transform: translateY(-50%);
+    pointer-events: none;
   }
-  .team-list:hover{
-    font-weight: 700;
+
+  .fd-hero-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) auto;
+    align-items: end;
+    gap: 32px;
   }
-  img{
-    height: inherit;
-    width: auto;
-    display:block;
-    margin:auto;
-    align-items: center;
-  }
-  .card-text{
-    font-size: 25px;
+
+  .fd-hero h1 {
+    margin: 0 0 16px;
     font-weight: 900;
-    font-family: "Mercury Text G1 A","Mercury Text G1 B",serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    line-height: 0.98;
+    letter-spacing: -0.015em;
   }
-  @media (max-width: 800px) {
-  .text-align{
-  
-  width: 300px; 
- 
- }
- 
-}
-@media only screen and (min-width: 800px) and (max-width: 1000px) {
-  .text-align{
-  
-  width: 500px; 
- 
- }
-}
-@media (min-width: 1000px) {
-  .text-align{
-  
-  width: 700px; 
- 
- }
-}
-.text-align{
-  box-shadow: 0 1px 6px rgb(255,255,255,0.3), 0 1px 4px rgba(255,255,255,0.2);
-  background-color:rgb(0,191,111);
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  
-  height: 100px;
- }
- .card-img-top{
-  height: 200px;
-  object-fit: contain;
- }
+  .fd-hero h1 span { color: var(--green); }
+
+  .fd-hero p {
+    max-width: 36rem;
+    margin: 0;
+    font-size: clamp(1.02rem, 1.6vw, 1.2rem);
+    line-height: 1.6;
+    color: #d6d8d6;
+  }
+
+  .fd-stats {
+    display: flex;
+    gap: clamp(20px, 4vw, 40px);
+    margin: 0;
+  }
+  .fd-stats div { display: flex; flex-direction: column-reverse; min-width: 0; }
+  .fd-stats dt {
+    font-size: 0.95rem;
+    color: #bfc2c0;
+  }
+  .fd-stats dd {
+    margin: 0;
+    font-weight: 900;
+    font-size: clamp(2.4rem, 5vw, 3.5rem);
+    line-height: 1;
+    color: var(--green);
+  }
+
+  /* ---------- Tabs ---------- */
+  .fd-bar {
+    padding: clamp(32px, 5vw, 48px) 0 24px;
+  }
+  .fd-tabs {
+    display: inline-flex;
+    gap: 4px;
+    padding: 4px;
+    border-radius: 12px;
+    background: #e6e8e6;
+  }
+  .fd-tabs button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 9px;
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .fd-tabs button[aria-selected="true"] {
+    background: var(--ink);
+    color: #fff;
+    font-weight: 700;
+  }
+  .fd-tabs .n {
+    display: inline-grid;
+    place-items: center;
+    min-width: 24px;
+    height: 22px;
+    padding: 0 6px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.08);
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .fd-tabs button[aria-selected="true"] .n {
+    background: var(--green);
+    color: var(--ink-deep);
+  }
+
+  /* ---------- Logo wall ---------- */
+  .fd-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin: 0;
+    padding: 0 0 clamp(56px, 8vw, 96px);
+    list-style: none;
+  }
+
+  .fd-tile {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #fff;
+    color: var(--ink);
+    text-decoration: none;
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  }
+
+  /* Fixed box; the logo is pinned inside it and scaled to fit, whatever its size */
+  .fd-logo {
+    position: relative;
+    display: block;
+    height: 170px;
+    overflow: hidden;
+  }
+  .fd .fd-logo img {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    bottom: 28px;
+    left: 28px;
+    display: block;
+    width: calc(100% - 56px) !important;
+    height: calc(100% - 56px) !important;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    object-fit: contain;
+    object-position: center;
+    filter: grayscale(1);
+    opacity: 0.75;
+    transition: filter 0.3s, opacity 0.3s;
+  }
+
+  .fd-name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px 16px;
+    border-top: 1px solid var(--line);
+    font-weight: 500;
+    font-size: 0.95rem;
+    line-height: 1.3;
+  }
+  .fd-name svg {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    color: var(--muted);
+    transition: color 0.2s, transform 0.2s;
+  }
+
+  /* Green sweep along the bottom edge on hover */
+  .fd-tile::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--green);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
+  }
+
+  .fd-tile:hover {
+    border-color: var(--green);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+  }
+  .fd-tile:hover::after { transform: scaleX(1); }
+  .fd-tile:hover .fd-logo img { filter: none; opacity: 1; }
+  .fd-tile:hover .fd-name svg { color: var(--green-dark); transform: translate(2px, -2px); }
+
+  /* Logos fade in once on load */
+  @media (prefers-reduced-motion: no-preference) {
+    .fd-grid li { animation: fd-in 0.5s ease-out both; }
+    .fd-grid li:nth-child(2) { animation-delay: 0.05s; }
+    .fd-grid li:nth-child(3) { animation-delay: 0.1s; }
+    .fd-grid li:nth-child(4) { animation-delay: 0.15s; }
+    .fd-grid li:nth-child(n+5) { animation-delay: 0.2s; }
+  }
+  @keyframes fd-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* Touch screens have no hover, so show logos in colour */
+  @media (hover: none) {
+    .fd-logo img { filter: none; opacity: 1; }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1000px) {
+    .fd-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .fd-hero-grid { grid-template-columns: 1fr; align-items: start; }
+  }
+  @media (max-width: 680px) {
+    .fd-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .fd-logo { height: 120px; }
+    .fd .fd-logo img { top: 16px; right: 16px; bottom: 16px; left: 16px; width: calc(100% - 32px) !important; height: calc(100% - 32px) !important; }
+    .fd-name { padding: 10px 12px; font-size: 0.88rem; }
+    .fd-hero::after { width: 260px; height: 260px; border-width: 26px; right: -90px; top: 20%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .fd-tile, .fd-tile::after, .fd-logo img, .fd-name svg { transition: none; }
+    .fd-tile:hover { transform: none; }
+  }
 </style>
 
-<body id="Funding">
+{%- assign current = site.funders | where: "current", true -%}
+{%- assign past = site.funders | where_exp: "f", "f.current != true" -%}
+{%- capture arrow -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>{%- endcapture -%}
 
-<div class="main">
-    <section class="heading" style="background-color:  rgb(49,48,48);height: 25vh; position: relative;">
-        <div class="container" >
-            <div class="text-align">
-                <h1 >OUR FUNDERS</h1>
-            </div>
-            
-        
-    </section>
-    <div class="list-section" style="margin-bottom: 200px; margin-top:200px;background-color: rgb(248, 248, 248);">
-        <ul style="list-style: none;box-sizing: border-box; text-align: center; " class="past-present">
-          <li class="team-list" id="currText" onclick="changeFunder('current')">Current Funders</li>
-          <li class="team-list" id="pastText" onclick="changeFunder('past')"> Past Funders</li>
-        </ul></div>
-        <section class="funders" style="margin-top: 200px;">
-          <div class="container">
-            <div class="row current-funders" style="margin-bottom: 100px;">
-              {% for funder in site.funders %}
-                {% if funder.current == true %}   
-                  <div class="col-4">
-                    <div class="current" id="current" style="display: block;">
-                      <div class="image" style="position: relative;">
-                        <img class="card-img-top p-2" src="/assets/img/funders/{{funder.did}}.png" alt="Card image cap">
-                        <a href="{{funder.link}}" style="margin:0 auto; display:block; width: 50%; align-items: center; margin-top: 20px;" class="btn btn-sm btn-outline-secondary">Homepage</a>
-                      </div>
-                    </div>
-                  </div>
-                  {% endif %}
-                  {% endfor %}
-            </div>
-                  <div class="row past-funders" style="display: none; margin-bottom: 100px;">
-                    {% for funder in site.funders %}
-                      {% if funder.current != true %}   
-                  <div class="col-4">
-                    <div class="past" id="past" style="display: block;">
-                      <div class="image" style="position: relative;">
-                        <img class="card-img-top p-2" src="/assets/img/funders/{{funder.did}}.png" alt="Card image cap">
-                      </div>
-                      <div class="button">
-                        <a href="{{funder.link}}" style="margin:0 auto; display:block; width: 50%; align-items: center; margin-top: 20px;" class="btn btn-sm btn-outline-secondary">Homepage</a>
-                      </div>
-                    </div>
-                  </div>
-                {% endif %}
-              {% endfor %}
-            </div>
-          </div>
-        </section>
-        
-    <script type="text/javascript">
-        
-        function changeFunder(list){
-            console.log(list)
-            if (list == "past"){
-                var past = document.getElementsByClassName("past-funders")
-                document.getElementById("pastText").style.fontWeight = "700"
-                document.getElementById("currText").style.fontWeight = "100"
-                
-                for(i = 0; i < past.length; i++) {
-                    past[i].style.display= 'flex';
-                    }
-                    var current = document.getElementsByClassName("current-funders")
-                for(i = 0; i < past.length; i++) {
-                    current[i].style.display= 'none';
-                    }
-                }else{
-                    var past = document.getElementsByClassName("past-funders")
-                    document.getElementById("currText").style.fontWeight = "700"
-                    document.getElementById("pastText").style.fontWeight = "100"
-                
-                for(i = 0; i < past.length; i++) {
-                    past[i].style.display= 'none';
-                    }
-                    var current = document.getElementsByClassName("current-funders")
-                for(i = 0; i < past.length; i++) {
-                    current[i].style.display= 'flex';
-                    }
-                }}
-    </script>
+<div class="fd">
+
+  <header class="fd-hero">
+    <div class="fd-wrap fd-hero-grid">
+      <div>
+        <h1>Our <span>funders</span></h1>
+        <p>
+          Our research on infectious disease genomics is made possible by these organisations.
+          Thank you for backing the work.
+        </p>
+      </div>
+      <dl class="fd-stats">
+        <div><dt>current funders</dt><dd>{{ current.size }}</dd></div>
+        <div><dt>funders over the years</dt><dd>{{ site.funders.size }}</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <div class="fd-wrap">
+    <div class="fd-bar">
+      <div class="fd-tabs" role="tablist" aria-label="Funders">
+        <button type="button" role="tab" id="fd-tab-current" aria-controls="fd-current" aria-selected="true">
+          Current <span class="n">{{ current.size }}</span>
+        </button>
+        <button type="button" role="tab" id="fd-tab-past" aria-controls="fd-past" aria-selected="false" tabindex="-1">
+          Past <span class="n">{{ past.size }}</span>
+        </button>
+      </div>
+    </div>
+
+    {%- comment -%} Same tile markup for both lists {%- endcomment -%}
+    <ul class="fd-grid" id="fd-current" role="tabpanel" aria-labelledby="fd-tab-current">
+      {%- for funder in current -%}
+        {%- assign fname = funder.title | default: funder.name | default: funder.did -%}
+        <li>
+          <a class="fd-tile" href="{{ funder.link }}" target="_blank" rel="noopener">
+            <span class="fd-logo">
+              <img src="{{ '/assets/img/funders/' | append: funder.did | append: '.png' | relative_url }}" alt="{{ fname }} logo" loading="lazy">
+            </span>
+            <span class="fd-name">{{ fname }} {{ arrow }}</span>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+
+    <ul class="fd-grid" id="fd-past" role="tabpanel" aria-labelledby="fd-tab-past" hidden>
+      {%- for funder in past -%}
+        {%- assign fname = funder.title | default: funder.name | default: funder.did -%}
+        <li>
+          <a class="fd-tile" href="{{ funder.link }}" target="_blank" rel="noopener">
+            <span class="fd-logo">
+              <img src="{{ '/assets/img/funders/' | append: funder.did | append: '.png' | relative_url }}" alt="{{ fname }} logo" loading="lazy">
+            </span>
+            <span class="fd-name">{{ fname }} {{ arrow }}</span>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
 </div>
-</body>
+
+<script>
+  // Current / past tabs (arrow keys move between them; /funding/#past opens past)
+  (function () {
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.fd-tabs [role="tab"]'));
+    function select(tab) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', String(on));
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      });
+    }
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener('click', function () { select(tab); });
+      tab.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        var next = tabs[(i + 1) % tabs.length];
+        select(next);
+        next.focus();
+      });
+    });
+    if (location.hash === '#past') select(tabs[1]);
+  })();
+</script>

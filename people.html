@@ -8,7 +8,7 @@ title: people
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@900&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/f8a9821c7d.js" crossorigin="anonymous"></script>
 </head>
 <!-- Google tag (gtag.js) -->
@@ -24,24 +24,36 @@ title: people
   html {
     scroll-behavior: smooth; 
   }
-  .team-list{
-    font-family: 'Quicksand', sans-serif;
-display: inline;
-cursor: pointer;
-margin: 20px;
-font-size: 20px;
-
-
-
+  #content, #content h1, #content h2, #content h6, #content h10, #content p, #content li, #content a {
+    font-family: 'Heebo', system-ui, sans-serif;
   }
-  
-  .team-list:hover{
+  .past-present {
+    display: inline-flex;
+    gap: 4px;
+    margin: 0;
+    padding: 4px !important;
+    border-radius: 12px;
+    background: #e6e8e6;
+  }
+  .team-list {
+    font-family: 'Heebo', sans-serif;
+    display: inline-block;
+    padding: 10px 22px;
+    border-radius: 9px;
+    color: #6a6d6b;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+  }
+  .team-list:hover { color: #313030; }
+  .team-list.is-active {
+    background: #313030;
+    color: #fff;
     font-weight: 700;
   }
-
-  #currText{
-    font-weight: 700;
-  }
+  .team-list:focus-visible { outline: 3px solid #00bf6f; outline-offset: 2px; }
+  .list-section { text-align: center; padding: 16px 0; }
 
 .team-member .team-member-wrap,.team-leader, .team-leader-wrap{
   position: relative;
@@ -157,42 +169,41 @@ h10{
 }
 @media (max-width: 480px) {
   h10{
-    font-size:9px;
+    font-size: 11px;
 }
 .fact{
-  font-size: 9px;
-}
-.btn{
-   z-index:10;
-   width: 200px;
-   font-size: 8px;
-}
-}
-@media (max-width: 400px) {
-  h10{
-    font-size:7px;
-}
-.fact{
-  font-size: 7px;
-}
-.btn{
-   z-index:10;
-   width: 150px;
-   font-size: 6px;
+  font-size: 11px;
 }
 }
 
-.button-container a{
-background-color: rgb(49,48,48);
-color: rgb(0,191,111);
-
-
+.button-container a.btn {
+  position: relative;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  padding: 9px 18px;
+  border: 2px solid #313030;
+  border-radius: 8px;
+  background-color: #313030;
+  color: #fff;
+  font-family: 'Heebo', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
 }
-.btn{
-   z-index:10;
-   width: 200px;
-   font-size: 12px;
+.button-container a.btn:hover {
+  border-color: #fff;
+  background-color: #fff;
+  color: #262525;
 }
+.button-container a.btn:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
 @media (max-width: 1400px) {
   .col-4, .col-6{
   width:50%
@@ -273,13 +284,7 @@ align-items: center;
 }
 </style>
 
-<links>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet"> </links>
+
 <body id="people">
 <div id="content" class="content-area" style="box-sizing: border-box;">
   
@@ -319,10 +324,10 @@ align-items: center;
           <div class="span12 widget-span widget-type-header" style=" margin-top: 150px;" data-widget-type="header" data-x="0" data-w="12">
             <div class="cell-wrapper layout-widget-wrapper">
               <span class="small-wrapper" style="text-align: center;" data-hs-cos-general-type="widget" data-hs-cos-type="header">
-                <h2 style="  font-family: 'Quicksand', sans-serif;color: black; text-align: center;line-height: 1.2;">We apply across 'omics platforms,
+                <h2 style="  font-family: 'Heebo', sans-serif;color: black; text-align: center;line-height: 1.2;">We apply across 'omics platforms,
                    perform laboratory experiments and develop informatics software to understand infectious disease
                   biology and interactions between vectors/pathogens and hosts, to assist the development of tools for infection control in public and animal health</h2>
-                <p  style="  font-family: 'Quicksand', sans-serif;color: black; text-align: center; margin-top: 100px;">
+                <p  style="  font-family: 'Heebo', sans-serif;color: black; text-align: center; margin-top: 100px;">
                   Scroll down for a peek into our multidisciplinary team, and tap our names to find out more about us</p>
               </span></div>
           </div>
@@ -382,9 +387,9 @@ align-items: center;
                     
                     <div class="team-member-bio-wrap middle">
               
-                      <h10 style="font-family: 'Quicksand',sans-serif;text-align: center; ;">{{person.excerpt}}</h10>
-                      <h6 style="bottom:0; font-family: 'Anton', sans-serif; text-align: center;">IMPORTANT FACT</h6>
-                      <p class="fact" style="font-family: 'Quicksand',sans-serif;text-align: center;" >{{person.Important-fact}}</p>
+                      <h10 style="font-family: 'Heebo', sans-serif;text-align: center; ;">{{person.excerpt}}</h10>
+                      <h6 style="bottom:0; font-family: 'Heebo', sans-serif; font-weight: 900; text-align: center;">IMPORTANT FACT</h6>
+                      <p class="fact" style="font-family: 'Heebo', sans-serif;text-align: center;" >{{person.Important-fact}}</p>
                       
                     </div>
                     <div class="button-container" >
@@ -407,8 +412,8 @@ align-items: center;
        
         <div class="list-section" style="margin-bottom: 100px; margin-top:100px;background-color: rgb(248, 248, 248);">
     <ul style="list-style: none;box-sizing: border-box; text-align: center; " class="past-present">
-      <li class="team-list" id="currText" onclick="changeTeam('current')">Current Team</li>
-      <li class="team-list" id="pastText" onclick="changeTeam('past')"> Alumni</li>
+      <li class="team-list is-active" id="currText" role="button" tabindex="0" onclick="changeTeam('current')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();changeTeam('current')}">Current team</li>
+      <li class="team-list" id="pastText" role="button" tabindex="0" onclick="changeTeam('past')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();changeTeam('past')}">Alumni</li>
     </ul></div>
     <script>
       function expand(a){
@@ -462,9 +467,9 @@ align-items: center;
             
             <div class="team-member-bio-wrap middle">
               
-              <h10 style="font-family: 'Quicksand',sans-serif;text-align: center; ;">{{person.excerpt}}</h10>
-              <h6 style="bottom:0; font-family: 'Anton', sans-serif; text-align: center;">IMPORTANT FACT</h6>
-              <p class="fact" style="font-family: 'Quicksand',sans-serif;text-align: center;" >{{person.Important-fact}}</p>
+              <h10 style="font-family: 'Heebo', sans-serif;text-align: center; ;">{{person.excerpt}}</h10>
+              <h6 style="bottom:0; font-family: 'Heebo', sans-serif; font-weight: 900; text-align: center;">IMPORTANT FACT</h6>
+              <p class="fact" style="font-family: 'Heebo', sans-serif;text-align: center;" >{{person.Important-fact}}</p>
               
             </div>
             <div class="button-container" >
@@ -519,8 +524,8 @@ align-items: center;
   function changeTeam(list){
       if (list == "past"){
           var past = document.getElementsByClassName("past")
-          document.getElementById("pastText").style.fontWeight = "700"
-          document.getElementById("currText").style.fontWeight = "100"
+          document.getElementById("pastText").classList.add("is-active")
+          document.getElementById("currText").classList.remove("is-active")
           
           for(i = 0; i < past.length; i++) {
               past[i].style.display= 'block';
@@ -531,8 +536,8 @@ align-items: center;
               }
           }else{
               var past = document.getElementsByClassName("past")
-              document.getElementById("currText").style.fontWeight = "700"
-              document.getElementById("pastText").style.fontWeight = "100"
+              document.getElementById("currText").classList.add("is-active")
+              document.getElementById("pastText").classList.remove("is-active")
           
           for(i = 0; i < past.length; i++) {
               past[i].style.display= 'none';

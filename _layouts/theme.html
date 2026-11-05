@@ -2,751 +2,514 @@
 layout: default
 title: theme
 ---
-<head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  </head> 
-<links>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet"> 
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>      
-</links>
-</links>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
+
 <style>
-    @import url('https://fonts.googleapis.com/css?family=Cairo');
-html, body {
-    height: 100%;   
-    overflow-x: hidden; 
-    font-family: Cairo;
-}
-
-    
-  
-
-@import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Asap", sans-serif;
-}
-section{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@media (min-width: 1000px) {
-  .heading .col-sm-10 h1{
-  font-family: Cairo;
-  text-align: center;
-  text-transform: uppercase;
-  
-font-size: 8rem;
-}
-.heading .col-sm-10 h3{
-  font-family: Cairo;
-  text-align: center;
-  text-transform: uppercase;
-  
-font-size: 3rem;
-}
-}
-@media (max-width: 1000px) {
-  .heading .col-sm-10 h1{
-  font-family: Cairo;
-  text-align: center;
-  text-transform: uppercase;
-  
-font-size: 50px;
-}
-.heading .col-sm-10 h3{
-  font-family: Cairo;
-  text-align: center;
-  text-transform: uppercase;
-  
-font-size: 30px;
-}
-}
-@keyframes fadein {
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-@keyframes slideUp1 {
-    0%,
-    20% {
-      transform: translateY(-50%);
-      opacity: 0;
-    }
-    40% {
-      transform: translateY(50%);
-      opacity: 0;
-    }
-    50% {
-      transform: translateY(0%);
-      opacity: 0;
-    }
-     
-    60% {
-      transform: translateY(-30%);
-    }
-    80%{
-      transform: translateY(0%);
-      opacity: 1;
-    }
-    80%{
-      transform: translateY(10%);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(0%);
-      opacity: 1;
-    
-    
-    }
+  .th {
+    --green: #00bf6f;
+    --green-dark: #009a59;
+    --ink: #313030;
+    --ink-deep: #262525;
+    --soft: #f5f6f5;
+    --line: #e2e4e2;
+    --muted: #6a6d6b;
+    font-family: 'Heebo', system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--soft);
   }
-  @keyframes slideUp2 {
-    0%,
-    20% {
-      transform: translateY(70%);
-      opacity: 0;
-    }
-    40% {
-      transform: translateY(-70%);
-      opacity: 0;
-    }
-    50% {
-      transform: translateY(0%);
-      opacity: 0;
-    }
-     
-    60% {
-      transform: translateY(40%);
-    }
-    80%{
-      transform: translateY(0%);
-      opacity: 1;
-    }
-    80%{
-      transform: translateY(-10%);
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(0%);
-      opacity: 1;
-    
-    
-    }
-  }
-  @keyframes big_it {
-    from {width:0px;}
-    to {width:400px;}
-}
-@keyframes center-animate {
-    0% {
-        transform: scaleX(121);
-    }
-    100% {
-        transform: scaleX(1);
-    }
-}
-.slideup1{ 
-  opacity: 1;
-  animation: fadein 0.4s ;
-  transform-style: preserve-3d;
-  animation-duration: 1.5s;
-  animation-fill-mode: both;
-  animation-name: slideUp1;
-  user-select: none;
-  animation-timing-function: ease-in;
+  .th *, .th *::before, .th *::after { box-sizing: border-box; }
+  .th [hidden] { display: none !important; }
+
+  .th-wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 clamp(16px, 4vw, 48px);
   }
 
-  .slideup2{
-    opacity: 1;
-animation: fadein 0.4s ;
-transform-style: preserve-3d;
-animation-duration: 1.5s;
-    animation-fill-mode: both;
-    animation-name: slideUp2;
-    user-select: none;
-    animation-timing-function: ease-in;
+  .th a:focus-visible,
+  .th button:focus-visible {
+    outline: 3px solid var(--green);
+    outline-offset: 3px;
   }
 
-.pageName {
-  transition: width 1s ;
-  width: 100%;
-  -webkit-transition: all 0.8s ease;
-  -moz-transition: all 0.8s ease;
-  transition: all 0.8s ease;
-  user-select: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.pageName:hover {
-background-color: rgba(0,191,111,0.2);
-cursor: pointer;
--moz-border-radius: 100px;
--webkit-border-radius: 100px;
-border-radius: 100px;
-}
-.hiddenBit #container {
-    width: 0;
-    transition: width 3.5s ease-out;
-    top: 100vh;
-    left: 0%;
-    transform: translateX(0%);
-    margin-top: -100px
-}
-
-.hiddenBit #container.expanded {
-    width: 100vw;
-    left: 50%;
-    transform: translateX(0);
-}
-
-
-.pageName.highlighted {
-background-color: rgba(0,191,111,0.2);
-cursor: pointer;
--moz-border-radius: 100px;
--webkit-border-radius: 100px;
-border-radius: 100px;
-}
-.project{
-  
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-
-}
-.project h4 {
-  margin: 0 0 1.33333rem;
-  padding: 0 0 10px;
-  font-size: 22px;
-  text-align: center;
-  margin-top: 10px;
-  user-select: none;
-}
-.owl-carousel .owl-item .project__card img {
-  border-radius: 50%;
-  width: 100%;
-  height: 1400%;
-
-}
-
-
-.owl-carousel {
-  display: none;
-  width: 100%;
-  z-index: 1;
-  overflow: hidden;
-  position: relative;
-}
- .owl-item {
-  padding-right: 2rem;
-  overflow: visible;
-  position: relative;
-  min-height: 1px;
-float: left;
-user-select: none;
-overflow: hidden;
-
-}
-@media (min-width: 1000px) {
-  .project__card {
-border-radius: 50%;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  -spec-box-orient: vertical;
-  box-orient: vertical;
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  -spec-box-direction: normal;
-  box-direction: normal;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -spec-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-direction: column;
-  position: relative;
-  padding: 2rem 1rem 2rem;
-  border: 1px solid #CACCD6;
-  background-color: #fff;
-  justify-content: center;
-  text-align: center;
-  width:350px; height: 350px;
-    
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center; 
-  background-size: contain;
-  transition: 0.5s ease-out;
-}
-
-}
-@media (max-width: 1000px) {
-  .project__card {
-border-radius: 50%;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  -spec-box-orient: vertical;
-  box-orient: vertical;
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  -spec-box-direction: normal;
-  box-direction: normal;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  -spec-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-direction: column;
-  position: relative;
-  padding: 2rem 1rem 2rem;
-  border: 1px solid #CACCD6;
-  background-color: #fff;
-  justify-content: center;
-  text-align: center;
-  width:250px; height: 250px;
- 
-  background-repeat: no-repeat;
-  background-size: cover;
-  transition: 0.5s ease-out;
-}
-
-}
-
-.disabled{
-  display: none;
-}
-.projectName {
-  user-select: none;
-  --b: 0.1em;   
-  --c: rgb(0,191,111); 
-  
-  color: #0000;
-  padding-block: var(--b);
-  background: 
-    linear-gradient(var(--c) 50%,#000 0) 0% calc(100% - var(--_p,0%))/100% 200%,
-    linear-gradient(var(--c) 0 0) 0% var(--_p,0%)/var(--_p,0%) var(--b) no-repeat;
-  -webkit-background-clip: text,padding-box;
-          background-clip: text,padding-box;
-  transition: .3s var(--_s,0s) linear,background-size .3s calc(.3s - var(--_s,0s));
-  font-family: Cairo; 
-}
-.projectName:hover {
-  --_p: 100%;
-  --_s: .3s;
-  cursor: pointer;
-  
-}
-.project__card:hover{
-  box-shadow: 0 5px 15px rgba(0,0,0,.2);
-  transform: translate3d(0,-2px,0);
-  cursor: pointer;
-}
-
-.modal, .modal-header .modal-title, .modal-body{
-  text-align: center;
-  width: 100%;
-  font-family: Cairo;
-}
-.btn-primary{
-  background-color: rgb(49,48,48);
-  color: white;
-  border-color: rgb(49,48,48) !important;
-  font-family: Cairo;
-}
-.btn-primary:hover{
-  background-color: rgb(0,191,111);
-}
-
-.btn-primary:active,.btn-primary:focus{
-  background-color: rgb(0,191,111);
-  color: white;
-  border-color: rgb(49,48,48) !important;
-  outline: none;
-  box-shadow: none;
-}
-
-.modal-body {
-  font-family: Cairo; 
-  font-size: 14px; 
-}
-.modal.animated {
-  animation-duration: 0.75s;
-  animation-fill-mode: both;
-  animation-name: bounceDown;
-}
-.modals p{
-  color: black;
-}
-@keyframes bounceDown {
-  0% {
-    transform: translateY(-2000px);
-    animation-timing-function: ease-out;
+  /* ---------- Header ---------- */
+  .th-hero {
+    padding: clamp(40px, 8vw, 88px) 0 clamp(36px, 6vw, 72px);
+    background: var(--ink);
+    color: #fff;
   }
-  60% {
-    transform: translateY(30px);
-    animation-timing-function: ease-in;
+  .th-crumb {
+    display: inline-block;
+    margin-bottom: 14px;
+    color: #bfc2c0;
+    font-weight: 500;
+    text-decoration: none;
   }
-  80% {
-    transform: translateY(-10px);
-    animation-timing-function: ease-in;
+  .th-hero h1 {
+    margin: 0 0 12px;
+    font-weight: 900;
+    font-size: clamp(2.6rem, 7vw, 4.75rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
   }
-  100% {
-    transform: translateY(0);
+  .th-hero h1 span { color: var(--green); }
+  .th-hero p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #d6d8d6;
   }
-}
-.badge{
-  display: inline;
-      margin: 10px;
-      text-align: center;
-      
-}
-.peep{
-  padding-left:15px;
-  padding-right: 15px;
-}
-.peep,.image{
-  margin: 10px;
-}
-@media (max-width: 990px) {
-  .owl-item{
-    width: 50%;
-}    
-}
 
-.arrow {
-    float: right;
-    transform: translate(-50%, -50%);
-    transform: rotate(90deg);
+  /* ---------- Sections ---------- */
+  .th-section { padding: clamp(36px, 6vw, 56px) 0 0; }
+  .th-section:last-of-type { padding-bottom: clamp(56px, 8vw, 96px); }
+  .th-section h2 {
+    margin: 0 0 22px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--green);
+    font-weight: 900;
+    font-size: clamp(1.4rem, 2.6vw, 1.8rem);
+  }
+
+  .th-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .th-grid.featured { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+
+  /* ---------- Project card (whole card opens the details) ---------- */
+  .th-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #fff;
+    color: inherit;
+    font: inherit;
+    text-align: left;
     cursor: pointer;
-    margin-left: 100px;
-}
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  }
+  .th-card:hover {
+    border-color: var(--green);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+  }
 
-.arrow span {
+  .th-img {
+    position: relative;
     display: block;
-    width: 20px;
-    height: 20px;
-    border-bottom: 5px solid rgb(49,48,48);
-    border-right: 5px solid rgb(49,48,48);
-    transform: rotate(45deg);
-    margin: -10px;
-    animation: animate 2s infinite;
-}
+    height: 190px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+    background: #fff;
+  }
+  .featured .th-img { height: 260px; }
+  .th .th-img img {
+    position: absolute;
+    inset: 20px;
+    width: calc(100% - 40px) !important;
+    height: calc(100% - 40px) !important;
+    max-width: none;
+    margin: 0;
+    object-fit: contain;
+  }
 
-.arrow span:nth-child(2) {
-    animation-delay: -0.2s;
-}
+  .th-body {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px 20px 18px;
+  }
+  .th-tag {
+    align-self: flex-start;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: var(--green);
+    color: var(--ink-deep);
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .th-name {
+    font-weight: 700;
+    font-size: 1.15rem;
+    line-height: 1.3;
+  }
+  .featured .th-name { font-size: 1.4rem; }
+  .th-sum {
+    flex: 1;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 
-.arrow span:nth-child(3) {
-    animation-delay: -0.4s;
-}
+  .th-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 6px;
+  }
+  .th-faces { display: flex; }
+  .th-faces img,
+  .th-faces .more {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #e6e8e6;
+  }
+  .th-faces > * + * { margin-left: -8px; }
+  .th-faces .more {
+    display: grid;
+    place-items: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .th-open {
+    font-weight: 500;
+    font-size: 0.92rem;
+    color: var(--green-dark);
+  }
 
-@keyframes animate {
-    0% {
-        opacity: 0;
-        transform: rotate(45deg) translate(-20px, -20px);
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        transform: rotate(45deg) translate(20px, 20px);
-    }
-}
-.arrowOther {
-    float: left;
-    margin-right: 100px;
-    transform: translate(-50%, -50%);
-    transform: rotate(-90deg);
+  .th-empty {
+    padding: 28px;
+    border: 1px dashed #cfd3d0;
+    border-radius: 12px;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  /* ---------- Details dialog ---------- */
+  .th-dialog {
+    width: min(760px, calc(100vw - 32px));
+    max-height: calc(100vh - 48px);
+    padding: 0;
+    border: none;
+    border-radius: 16px;
+    color: var(--ink);
+    font-family: 'Heebo', system-ui, sans-serif;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  }
+  .th-dialog::backdrop { background: rgba(38, 37, 37, 0.7); }
+  .th-dialog[open] { animation: th-pop 0.2s ease-out; }
+  @keyframes th-pop {
+    from { opacity: 0; transform: translateY(12px) scale(0.98); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  .th-dlg-head {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    border-bottom: 3px solid var(--green);
+    background: #fff;
+  }
+  .th-dlg-head h2 {
+    margin: 0;
+    font-weight: 900;
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    line-height: 1.15;
+  }
+  .th-x {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: var(--soft);
+    color: var(--ink);
     cursor: pointer;
-}
+  }
+  .th-x:hover { background: var(--green); color: var(--ink-deep); }
+  .th-x svg { width: 18px; height: 18px; }
 
-.arrowOther span {
+  .th-dlg-body { padding: 20px 24px 8px; }
+  .th-dlg-img {
     display: block;
-    width: 20px;
-    height: 20px;
-    border-bottom: 5px solid rgb(49,48,48);
-    border-right: 5px solid rgb(49,48,48);
-    transform: rotate(45deg);
-    margin: -10px;
-    animation: animate 2s infinite;
-}
+    width: 100%;
+    max-height: 260px;
+    margin: 0 0 18px;
+    object-fit: contain;
+  }
+  .th-dlg-text {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: #3d3c3c;
+  }
+  .th-dlg-text p { margin: 0 0 1em; }
 
-.arrowOther span:nth-child(2) {
-    animation-delay: -0.2s;
-}
+  .th-people-h {
+    margin: 18px 0 10px;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .th-people {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .th-people a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 14px 6px 6px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+  .th-people a:hover { border-color: var(--green); }
+  .th-av {
+    position: relative;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #e6e8e6;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+  .th .th-av img {
+    position: absolute;
+    inset: 0;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0;
+    object-fit: cover;
+  }
 
-.arrowOther span:nth-child(3) {
-    animation-delay: -0.4s;
-}
-.modal{
-  z-index: 99999999999999999999999999;
-}
+  .th-dlg-foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 16px 24px 22px;
+  }
+  .th-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 18px;
+    border: 1px solid var(--ink);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--ink);
+    font: inherit;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .th-btn.primary { background: var(--ink); color: #fff; }
+  .th-btn.primary:hover { border-color: var(--green); background: var(--green); color: var(--ink-deep); }
+  .th-btn:not(.primary):hover { border-color: var(--green); }
+  .th-btn svg { width: 15px; height: 15px; }
 
-.container-fluid{
-  
-  max-width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-}
-.header{
-  text-align: center;
-  padding: 50px;
-}
-.col-xxl-12{
-  padding:75px
-}
-@media (max-width: 1400px) {
-  .col-4,.col-6{
-  width:50%
-}    
-}
-@media (max-width: 990px) {
-  .col-4,.col-6{
-    width: 200%;
-}    
-}
-@media (max-width: 700px) {
-  .col-4,.col-6{
-    width: 150%;
-    margin-left: 10px;
-}    
-}
-.peep-container {
-  position: relative;
-  
-}
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1000px) {
+    .th-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 680px) {
+    .th-grid,
+    .th-grid.featured { grid-template-columns: 1fr; }
+    .th-img, .featured .th-img { height: 180px; }
+    .th-dlg-head, .th-dlg-body, .th-dlg-foot { padding-left: 18px; padding-right: 18px; }
+    .th-dlg-foot .th-btn { flex: 1; justify-content: center; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .th-card { transition: none; }
+    .th-card:hover { transform: none; }
+    .th-dialog[open] { animation: none; }
+  }
 </style>
 
-<body id="research">
-  
-<div class="main">
-  
-  <section class="heading" style="height: 80vh;">
-    <div class="text" id="textForHeader" style="width: 100%; text-align: center;">
-        <div class="row">
-            <div class="col-sm-10 mx-auto" style="opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg); transform-style: preserve-3d;">
-                <h3 class="slideup1">Our</h3>
-                <div class="pageName" id="pageName">
-                  <div class="arrowOther">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                    <h1>{{page.name}}</h1>
-                    <div class="arrow">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                  </div>
-              
-                </div>
-                <h3 class="slideup2">Projects</h3>
-            </div>
-        </div>
+{%- assign theme_projects = site.projects | where_exp: "p", "p.theme contains page.name" -%}
+{%- assign featured = theme_projects | where: "highlighted", true -%}
+{%- assign others = theme_projects | where_exp: "p", "p.highlighted != true" -%}
+{%- capture ext -%}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg>{%- endcapture -%}
+
+<div class="th">
+
+  <header class="th-hero">
+    <div class="th-wrap">
+      <span class="th-crumb">Our research</span>
+      <h1><span>{{ page.name }}</span> projects</h1>
+      <p>{{ theme_projects.size }} project{% if theme_projects.size != 1 %}s{% endif %}{% if featured.size > 0 %}, {{ featured.size }} highlighted{% endif %}</p>
     </div>
-</section>
-<section class="hiddenBit" id="hiddenBit" style="margin-bottom: 400px;">
-  {% assign my_counter = 0 %}
-  <div class="container-fluid" id="container">
-    <div class="owl-carousel" style="margin-top: 20px;">
-      <div class="highlighted-project">
-        <div class="row">
-        <div class="header">
-          <h2><b>HIGHLIGHTED</b></h2>
-             <h2><b>PROJECTS</b></h2>
-        </div>
-        {% for projects in site.projects %}
-        {% if projects.theme contains page.name %}
-        {% if projects.highlighted == true  %}
-        {% assign my_counter = my_counter | plus: 1  %}
-        <div class="col-6">
-          <div class="project" id="projectPicture">
-            <h4 class="projectName align-self-center" data-bs-toggle="modal" data-bs-target="#highlightexampleModal{{my_counter}}" >
-              {{projects.name}}
-            </h4>
-            <button type="button" class="project__card" data-bs-toggle="modal" data-bs-target="#highlightexampleModal{{my_counter}}" style="background-image: url('/assets/img/projects/{{page.name}}/{{projects.pid}}.png'); background-size: contain; background-position: center;">
+  </header>
+
+  {%- if theme_projects.size == 0 -%}
+    <section class="th-section">
+      <div class="th-wrap"><p class="th-empty">No projects listed for this theme yet.</p></div>
+    </section>
+  {%- endif -%}
+
+  {%- if featured.size > 0 -%}
+  <section class="th-section">
+    <div class="th-wrap">
+      <h2>Highlighted projects</h2>
+      <ul class="th-grid featured">
+        {%- for p in featured -%}
+          <li>
+            <button type="button" class="th-card" data-open="dlg-{{ p.pid }}">
+              <span class="th-img"><img src="{{ '/assets/img/projects/' | append: page.name | append: '/' | append: p.pid | append: '.png' | relative_url }}" alt="" loading="lazy" onerror="this.style.visibility='hidden'"></span>
+              <span class="th-body">
+                <span class="th-tag">Highlighted</span>
+                <span class="th-name">{{ p.name }}</span>
+                <span class="th-sum">{{ p.excerpt | strip_html | truncatewords: 40 }}</span>
+                <span class="th-foot">
+                  <span class="th-faces">
+                    {%- for pid in p.people limit: 4 -%}<img src="{{ '/assets/img/' | append: pid | append: '.jpg' | relative_url }}" alt="" loading="lazy" onerror="this.remove()">{%- endfor -%}
+                    {%- if p.people.size > 4 -%}<span class="more">+{{ p.people.size | minus: 4 }}</span>{%- endif -%}
+                  </span>
+                  <span class="th-open">Details</span>
+                </span>
+              </span>
             </button>
-            
-         
-          </div>
-        </div>
-        {% endif %}
-        {% endif %}
-        {% endfor %}
-        </div>
-      </div>
-      <div class="row ">
-        <div class="header">
-          <h2><b>PAST PROJECTS</b></h2>
-        </div>
-        {% assign my_counter = 0 %}
-        {% for projects in site.projects %}
-        {% if projects.theme contains page.name %}
-        {% if projects.highlighted != true  %}
-        {% assign my_counter = my_counter | plus: 1  %}
-        
-        
-        <div class="col-4 " style="margin-bottom: 21px; display: inline;">
-    
-          <div class="project" id="projectPicture">
-            
-            <h4 class="projectName" data-bs-toggle="modal" data-bs-target="#exampleModal{{my_counter}}" >
-              {{projects.name}}
-            </h4>
-            <button type="button" class="project__card" data-bs-toggle="modal" data-bs-target="#exampleModal{{my_counter}}" style="background-image: url('/assets/img/projects/{{page.name}}/{{projects.pid}}.png');">
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  </section>
+  {%- endif -%}
+
+  {%- if others.size > 0 -%}
+  <section class="th-section">
+    <div class="th-wrap">
+      <h2>{% if featured.size > 0 %}More projects{% else %}Projects{% endif %}</h2>
+      <ul class="th-grid">
+        {%- for p in others -%}
+          <li>
+            <button type="button" class="th-card" data-open="dlg-{{ p.pid }}">
+              <span class="th-img"><img src="{{ '/assets/img/projects/' | append: page.name | append: '/' | append: p.pid | append: '.png' | relative_url }}" alt="" loading="lazy" onerror="this.style.visibility='hidden'"></span>
+              <span class="th-body">
+                <span class="th-name">{{ p.name }}</span>
+                <span class="th-sum">{{ p.excerpt | strip_html | truncatewords: 30 }}</span>
+                <span class="th-foot">
+                  <span class="th-faces">
+                    {%- for pid in p.people limit: 4 -%}<img src="{{ '/assets/img/' | append: pid | append: '.jpg' | relative_url }}" alt="" loading="lazy" onerror="this.remove()">{%- endfor -%}
+                    {%- if p.people.size > 4 -%}<span class="more">+{{ p.people.size | minus: 4 }}</span>{%- endif -%}
+                  </span>
+                  <span class="th-open">Details</span>
+                </span>
+              </span>
             </button>
-             
-          </div>
-          </div>
-          {% endif %}
-          {% endif %}
-        {% endfor %}
-      </div>
+          </li>
+        {%- endfor -%}
+      </ul>
     </div>
-</section>
-<section>
-  
-  <div class="highmodals">
-    {% assign my_counter = 0 %}
-      {% for projects in site.projects %}
-      {% if projects.theme contains page.name %}
-      {% if projects.highlighted == true  %}
-      {% assign my_counter = my_counter | plus: 1  %}
-  <div class="modal fade animated bounce-down" id="highlightexampleModal{{my_counter}}" tabindex="-1" aria-labelledby="highlightexampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="highlightexampleModalLabel">{{projects.name}}</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>{{projects.excerpt}}</p>
-          <br>
-          <div class="tags " >
-            <p>People who worked on this project:</p>
-            {% assign people = projects.people  %}
-            <span class="badge d-flex justify-content-center align-self-center">
+  </section>
+  {%- endif -%}
 
-      </span>
-      <span class="badge d-flex justify-content-center align-self-center" >
-        {% for peep in people %}
-        <div class="peep-container">
-          <p class="peep" style="color: #000;">{{peep}}</p>
-          <img class="image" src="/assets/img/{{peep}}.jpg" style="width:75px; height: 75px; border-radius:25px" >
-        </div>
-        {% endfor %}
-
-      </span>
-          </div>
-        </div>
-        <div class="modal-footer">
-          {% if projects.link != "none" %}
-                  
-          <button type="button" class="btn btn-primary check-it-out" href="#" data-link="{{projects.link}}">Check it out!</button>
-          {% else %}
-
-          {% endif %}
-
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-        </div>
+  <!-- ===== One details dialog per project ===== -->
+  {%- for p in theme_projects -%}
+    <dialog class="th-dialog" id="dlg-{{ p.pid }}" aria-labelledby="dlg-{{ p.pid }}-t">
+      <div class="th-dlg-head">
+        <h2 id="dlg-{{ p.pid }}-t">{{ p.name }}</h2>
+        <button type="button" class="th-x" data-close aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
       </div>
-    </div>
-  </div>
-  {% endif %}
-  {% endif %}
-  {% endfor %}
-  </div>
-  <div class="modals">
-    {% assign my_counter = 0 %}
-      {% for projects in site.projects %}
-      {% if projects.theme contains page.name %}
-      {% if projects.highlighted != true  %}
-      {% assign my_counter = my_counter | plus: 1  %}
-  <div class="modal fade animated bounce-down" id="exampleModal{{my_counter}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">{{projects.name}}</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>{{projects.excerpt}}</p>
-          <br>
-          <div class="tags " >
-            <p>People who worked on this project:</p>
-            {% assign people = projects.people  %}
-            <span class="badge d-flex justify-content-center align-self-center" >
 
-       
-      </span>
-      <span class="badge d-flex justify-content-center align-self-center" >
-        {% for peep in people %}
-        <div class="peep-container">
-          <p class="peep" style="color: #000;">{{peep}}</p>
-          <img class="image" src="/assets/img/{{peep}}.jpg" style="width:75px; height: 75px; border-radius:25px" >
-        </div>
-        {% endfor %}
+      <div class="th-dlg-body">
+        <img class="th-dlg-img" src="{{ '/assets/img/projects/' | append: page.name | append: '/' | append: p.pid | append: '.png' | relative_url }}" alt="" loading="lazy" onerror="this.remove()">
+        <div class="th-dlg-text">{{ p.excerpt }}</div>
 
-      </span>
-          </div>
-        </div>
-        <div class="modal-footer">
-          {% if projects.link != "none" %}
-                  
-          <button type="button" class="btn btn-primary check-it-out" href="#" data-link="{{projects.link}}">Check it out!</button>
-          {% else %}
-
-          {% endif %}
-
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
-        </div>
+        {%- if p.people.size > 0 -%}
+          <p class="th-people-h">People on this project</p>
+          <ul class="th-people">
+            {%- for pid in p.people -%}
+              {%- assign person = site.people | where: "pid", pid | first -%}
+              <li>
+                <a href="{{ '/people/' | append: pid | relative_url }}">
+                  <span class="th-av" aria-hidden="true">
+                    {%- if person -%}{{ person.forname | slice: 0 | upcase }}{{ person.surname | slice: 0 | upcase }}{%- else -%}{{ pid | slice: 0, 2 | upcase }}{%- endif -%}
+                    <img src="{{ '/assets/img/' | append: pid | append: '.jpg' | relative_url }}" alt="" loading="lazy" onerror="this.remove()">
+                  </span>
+                  {% if person %}{{ person.forname | capitalize }} {{ person.surname | capitalize }}{% else %}{{ pid }}{% endif %}
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
       </div>
-    </div>
-  </div>
-  {% endif %}
-  {% endif %}
-  {% endfor %}
-  </div>
-</section>
+
+      <div class="th-dlg-foot">
+        <button type="button" class="th-btn" data-close>Close</button>
+        {%- if p.link and p.link != "none" -%}
+          <a class="th-btn primary" href="{{ p.link }}" target="_blank" rel="noopener">Visit project {{ ext }}</a>
+        {%- endif -%}
+      </div>
+    </dialog>
+  {%- endfor -%}
 </div>
 
-</body>
-
 <script>
-$("#pageName").click(function() {
-  $("#container").toggleClass("expanded");
-  $("#pageName").toggleClass("highlighted");
-  $(".owl-carousel").slideToggle(2000)
-  $('html,body').animate({
-        scrollTop: $(".expanded").offset().top-=300},
-        'slow');
+  (function () {
+    var lastTrigger = null;
 
-});
+    document.querySelectorAll('.th [data-open]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var dlg = document.getElementById(btn.getAttribute('data-open'));
+        if (!dlg) return;
+        lastTrigger = btn;
+        dlg.showModal();
+        history.replaceState(null, '', '#' + dlg.id.replace('dlg-', ''));
+      });
+    });
 
-</script>
+    document.querySelectorAll('.th-dialog').forEach(function (dlg) {
+      dlg.querySelectorAll('[data-close]').forEach(function (b) {
+        b.addEventListener('click', function () { dlg.close(); });
+      });
+      // Click on the dimmed backdrop closes it
+      dlg.addEventListener('click', function (e) {
+        var r = dlg.getBoundingClientRect();
+        var inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+        if (!inside) dlg.close();
+      });
+      dlg.addEventListener('close', function () {
+        history.replaceState(null, '', location.pathname);
+        if (lastTrigger) lastTrigger.focus();
+      });
+    });
 
-<script type="text/javascript">
-$(document).on("click", ".check-it-out", function() {
-  var link = $(this).data("link");
-  window.location.href = link;
-});
+    // Deep link: /themes/malaria/#project-pid opens that project
+    if (location.hash) {
+      var d = document.getElementById('dlg-' + location.hash.slice(1));
+      if (d && d.showModal) d.showModal();
+    }
+  })();
 </script>

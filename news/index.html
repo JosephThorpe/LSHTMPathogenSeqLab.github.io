@@ -1,580 +1,588 @@
 ---
 layout: default
-title: My Blog
+title: News
 ---
-<head>
-    
-</head>
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) — move to the default layout if every page should be tracked -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQRDTXMLDY"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-FQRDTXMLDY');
 </script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
+
 <style>
-    body {
-  overflow-x: hidden; /* Hide horizontal scrollbar */
-}
-    @media (min-width: 1200px) {
-    .container{
-        max-width: 1500px
-    }
-    .mainPhoto{
-    height:600px;
-width: auto;
+  /* ---------- Tokens ---------- */
+  .news-page {
+    --green: #00bf6f;
+    --green-dark: #009a59;
+    --ink: #313030;
+    --ink-deep: #262525;
+    --paper: #ffffff;
+    --soft: #f5f6f5;
+    --line: #e2e4e2;
+    --muted: #6a6d6b;
+    font-family: 'Heebo', system-ui, sans-serif;
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+  .news-page * { box-sizing: border-box; }
 
+  .news-wrap {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 clamp(16px, 4vw, 48px);
+  }
 
-}
-.newz img {
-    
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.4);
-    transition: box-shadow 0.3s ease-in-out;
-}
+  .news-page a:focus-visible {
+    outline: 3px solid var(--green);
+    outline-offset: 3px;
+  }
 
-.newz img:hover {
-    box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.5);
-}
-}
+  /* ---------- Featured (top 3 posts) ---------- */
+  .news-hero {
+    background: var(--ink);
+    color: #fff;
+    padding: clamp(28px, 6vw, 64px) 0 clamp(36px, 6vw, 72px);
+  }
 
-@media (max-width: 800px) {
-    .mainPhoto{
-    height:300px;
-   
+  .news-hero h1 {
+    margin: 0 0 clamp(20px, 3vw, 32px);
+    font-weight: 900;
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: #fff;
+  }
+  .news-hero h1 span { color: var(--green); }
 
+  .news-feature {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: clamp(20px, 3vw, 40px);
+    align-items: stretch;
+  }
 
-}
-    img{
-        display: none;
-    }
-    .grid-1, .grid-2,.grid-3{
-        width: 100%;
-    }
-    .events .container{
-        padding: 0 60px;
-  box-sizing: border-box;
-height: 250px;
-display: table;
-clear: both;
-border-spacing: 0;
- width: 89%;
- font-size: 12px;
- position: absolute;
-    
-}
-.bottomevents2 p{
-    text-align: center;
-   margin-left: 5px;
-   
-}
-.bottomevents{
-    font-family: 'Heebo', sans-serif;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
-    background-color: white;
-    position: absolute;
-    bottom: 0;
-    width: 80%;
-    height: 50px;
-    padding-left:10px
-}
-.pastEvents{
-    margin-top:250px;
-}
-.content{
-    font-size: 14px;
-}
-}
-.heading .container {
-  padding: 0 60px;
-  box-sizing: border-box;
-  content: "";
-display: table;
-clear: both;
-border-spacing: 0;
-position: relative;
-height: 60vh;
-  min-height: 100%;
-
-}
-.pastEvents .container{
-    padding: 0 60px;
-  box-sizing: border-box;
-    margin-top: 100px;
-
-
-}
-.col-4 .h1{
-     border: 1px solid black;
-    width: 70px;
+  .news-frame {
+    position: relative;
+    aspect-ratio: 16 / 10;
     overflow: hidden;
-    white-space: nowrap;
-}
-@media (min-width: 800px) {
-    .events .container{
-    padding: 0 60px;
-  box-sizing: border-box;
-height: 250px;
-display: table;
-clear: both;
-border-spacing: 0;
-position: relative;
- width: 100%;
-}
-.bottomevents{
-    font-family: 'Heebo', sans-serif;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
-    background-color: white;
+    border-radius: 16px;
+    background: var(--ink-deep);
+    isolation: isolate;
+  }
+
+  .news-slide {
     position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+  .news-slide.is-active { opacity: 1; }
+
+  /* blurred copy fills the frame, sharp copy sits on top uncropped */
+  .news-page .news-slide img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+  }
+  .news-page .news-slide .news-slide-bg {
+    object-fit: cover !important;
+    filter: blur(28px) brightness(0.55) saturate(1.2);
+    transform: scale(1.15);
+  }
+  .news-page .news-slide .news-slide-fg {
+    object-fit: contain !important;
+  }
+  .news-slide.is-active .news-slide-fg {
+    animation: news-zoom 6s ease-out both;
+  }
+  @keyframes news-zoom {
+    from { transform: scale(1.04); }
+    to   { transform: scale(1); }
+  }
+
+  .news-slide figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
     bottom: 0;
-    width: 90%;
-    padding-left:10px;
-    height: 50px;
-}
-.grid-1, .grid-2,.grid-3{
-        width: 33.3%;
-    }
-    .mainPhoto{
-    height:600px;
-    width:600px;
-    
-
-}
-}
-@media (max-width: 1000px) {
-    .mainPhoto{
-    height:600px;
-   
-
-
-}
-}
-.col-8 {
-  width: 60.66667%;
-  object-fit: contain;
-  position: absolute;
-    margin-top: 20px;
-  clear: both;
- 
-}
-
-.upcoming-items > :nth-child(1),.upcoming-items > :nth-child(2){
-    border-right: 1px solid rgb(0,191,111);
-    padding: 30px;
-    
-}
-
-.upcoming-items > :nth-child(3){
-
-    padding: 10px;
-    
-}
-
-
-
-.grid-1 {
-  
-  min-height: 1px;
-box-sizing: border-box;
-height: 100px;
-float: right;
-color: white;
-position: absolute;
-top: 10vh;
-    right: 0px;
-    border-style: solid;
-    border-color: rgb(0,191,111);
-    align-items: center;
-    text-align: center;display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 5px 5px 5px 5px black;
-
-}
-.grid-2{
-    
-  min-height: 1px;
-box-sizing: border-box;
-float: right;
-color: white;
-position: absolute;
-height: 100px;
-top: 30vh;
-    right: 0px;
-    border-color: rgb(0,191,111);
-    text-align: center;border-style: solid;display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 5px 5px 5px 5px black;
-}
-.grid-3{
-    
-  min-height: 1px;
-  height: 100px;
-box-sizing: border-box;border-style: solid;
-    border-color: rgb(0,191,111);float: right;
-color: white;
-position: absolute;
-top: 50vh;
-    right: 0px;
-    text-align: center;   border-color: rgb(0,191,111);
+    z-index: 2;
     display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 5px 5px 5px 5px black;
-    border-style: solid;
-}
-
- a{
-  color: white;
-  background-color: transparent;
-  text-decoration: none;
-  font-family: 'Heebo', sans-serif;
-}
-.powerpoint{
-    color: black;
-}
-.powerpoint:hover{
-    color: rgb(0,191,111);
-}
-
-
-.author{
-    height:fit-content;
-}
-.pastEvents a{
-    color: rgb(49,48,48);
-}
-.pastEvents a:hover{
-    color:rgb(0,191,111);
-}
-.heading a:hover{
-color: rgb(49,48,48);
-}
-.newsitems .col-4{
-    cursor: pointer;
-}
-
-.bottomevents2{
-    background-color: white;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
-    width: 90%;
-    height: 200px;
-    position: absolute;
-    top: 0;
-}
-.newsbox .content {
-    
-    flex-grow: 1;
-    text-align: center;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 48px 20px 16px;
+    background: linear-gradient(to top, rgba(20, 20, 20, 0.85), rgba(20, 20, 20, 0));
+    color: #fff;
+  }
+  .news-slide-date {
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--green);
+    color: var(--ink-deep);
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .news-slide-title {
+    font-weight: 700;
+    font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis;
+  }
 
-}
-.col-xl-4 .title,
-.col-xl-4 .author {
-  flex-shrink: 0;
-}
-.newsbox {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 450px;          /* make all boxes same height */
-  overflow: hidden;
-  background: white;      /* optional: clean background */
-  border-radius: 10px;    /* optional: visual consistency */
-  padding: 10px;
-}
+  .news-progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    height: 4px;
+    width: 0;
+    background: var(--green);
+  }
+  .news-progress.is-running { animation: news-progress 5s linear both; }
+  @keyframes news-progress { to { width: 100%; } }
+
+  .news-feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .news-feature-list > li {
+    display: flex;
+    flex: 1;
+  }
+
+  .news-feature-item {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 16px;
+    min-height: 88px;
+    padding: 18px 20px;
+    border: 2px solid var(--green);
+    border-radius: 12px;
+    background: transparent;
+    color: #fff;
+    font-weight: 700;
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    line-height: 1.3;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  .news-feature-item:hover,
+  .news-feature-item.is-active {
+    background: var(--green);
+    color: var(--ink-deep);
+  }
+
+  .news-feature-num {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    font-size: 0.9rem;
+    font-weight: 900;
+  }
+  .news-feature-item.is-active .news-feature-num { background: rgba(0, 0, 0, 0.15); }
+
+  /* ---------- Upcoming ---------- */
+  .news-upcoming {
+    position: relative;
+    z-index: 1;
+    margin-top: -32px;
+  }
+
+  .news-upcoming-box {
+    border-radius: 14px;
+    background: var(--paper);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+  }
+
+  .news-upcoming-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px 16px;
+    padding: 18px 24px;
+    border-bottom: 3px solid var(--green);
+  }
+  .news-upcoming-head h2 {
+    margin: 0;
+    font-weight: 900;
+    font-size: 1.35rem;
+  }
+  .news-upcoming-head p {
+    margin: 0;
+    color: var(--muted);
+  }
+
+  .news-upcoming-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .news-upcoming-list li {
+    padding: 22px 24px;
+    font-weight: 500;
+    line-height: 1.45;
+  }
+  .news-upcoming-list li + li { border-left: 1px solid var(--line); }
+
+  /* ---------- Past news ---------- */
+  .news-past {
+    padding: clamp(48px, 7vw, 80px) 0 clamp(40px, 6vw, 64px);
+  }
+
+  .news-past h2 {
+    margin: 0 0 28px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--green);
+    font-weight: 900;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+  }
+
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .news-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 22px 22px 18px;
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--green);
+    border-radius: 12px;
+    background: var(--paper);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .news-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .news-card-img {
+    position: relative;
+    display: block;
+    text-decoration: none !important;
+    margin: -22px -22px 18px;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--soft);
+  }
+  .news-page .news-card-img img {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    object-fit: cover !important;
+    transition: transform 0.4s ease;
+  }
+  .news-card:hover .news-card-img img { transform: scale(1.04); }
+  .news-card-img.is-empty {
+    display: grid;
+    place-items: center;
+    background: var(--ink);
+  }
+  .news-card-img.is-empty::after {
+    content: "TAGC";
+    font-weight: 900;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    color: var(--green);
+    opacity: 0.85;
+  }
+
+  .news-card h3 {
+    margin: 0 0 10px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1.3;
+  }
+  .news-card h3 a {
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .news-card h3 a:hover { color: var(--green-dark); }
+
+  .news-card-brief {
+    flex: 1;
+    margin: 0 0 18px;
+    color: var(--muted);
+    line-height: 1.55;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .news-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  .news-card-meta img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .news-card-meta strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* ---------- Pagination ---------- */
+  .news-pages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 48px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .news-pages a,
+  .news-pages span {
+    display: inline-grid;
+    place-items: center;
+    min-width: 44px;
+    height: 44px;
+    padding: 0 14px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--ink);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .news-pages a:hover { border-color: var(--green); color: var(--green-dark); }
+  .news-pages .is-current { border-color: var(--green); background: var(--green); color: var(--ink-deep); }
+  .news-pages .is-disabled { color: #b5b8b6; }
+
+  /* ---------- Tablet ---------- */
+  @media (max-width: 1000px) {
+    .news-feature { grid-template-columns: 1fr; }
+    .news-feature-list { flex-direction: row; }
+    .news-feature-item { min-height: 0; font-size: 1rem; }
+    .news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  /* ---------- Phone ---------- */
+  @media (max-width: 680px) {
+    .news-feature-list { flex-direction: column; }
+    .news-feature-item { padding: 14px 16px; }
+    .news-slide-title { display: none; }
+    .news-slide figcaption { justify-content: flex-end; padding: 32px 12px 12px; }
+
+    .news-upcoming { margin-top: -20px; }
+    .news-upcoming-list { grid-template-columns: 1fr; }
+    .news-upcoming-list li + li { border-left: none; border-top: 1px solid var(--line); }
+
+    .news-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .news-slide, .news-feature-item, .news-card { transition: none; }
+    .news-slide.is-active .news-slide-fg, .news-progress.is-running { animation: none; }
+    .news-card:hover { transform: none; }
+  }
 </style>
-<links>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@900&display=swap" rel="stylesheet"> 
-     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-</links>
-<script>
-console.log($(document).width())
-</script>
-<body id="News">
-<!-- This loops through the paginated posts -->
-<div class="main">
-    {% assign currentYear = site.time | date: "%Y" %}
-{% assign currentDay = site.time | date: "%j" | plus: 0 %}
-{% assign currentDay_minus_30_days = site.time | date: "%j" | minus: 30  %}
 
-    <section class="heading" style="background-color:  rgb(49,48,48);height: 75vh;">
-        <div class="container" >
-            <div class="title">
-                <div class="text-align"  >
-                    <h1 style="color: rgb(0,191,111);display: inline-block;font-family: 'Heebo', sans-serif;">TAGC </h1>
-                    <h1 style="display: inline-block; font-family: 'Heebo', sans-serif;margin: 10px;color: white;">LATEST NEWS</h1>
-                </div>
-            </div>
-            <div class="newsitems">
-                {% for post in site.posts  limit:3 %}
-                {% assign my_counter = my_counter | plus: 1 %}
-                {% assign image = post.pid  %}
-                <div class="col-8 newz" id="img{{my_counter}}" style="display: flex; justify-content: center; align-items: center; margin-top: 20px; margin-right: 10px; height: 50vh; ">
-                    <img src="/assets/img/newspics/{{image}}.webp" id="mainPhoto{{my_counter}}" class="mainPhoto" style="object-fit: contain; max-width: 100%; max-height: 100%; border-radius: 25px;background-color:black">
-                </div>
-    
-    
-                {% if post.link != "none" %}
-                {% assign link = post.link %}
-                {% else %}
-                {% assign link = post.url %}
-                
-                {% endif %}
-                
-                <div class="col-4 grid-{{my_counter}} module" onmouseleave="startTimer()" data-optionid="{{post.pid}}"onmouseover="changeImage{{my_counter}}('{{image}}')" id="grid{{my_counter}}" onclick="window.location='{{link}}';">
-                    <a href="{{link}}">{{post.titleForBox }}</a>
-                </div>
-                
-                {% endfor %}
-            </div>
-            
-            <div class="bottomevents">
-                <h3 style="padding-left: 20px; padding: 5px;">Upcoming events</h3>
-                <br>
-                    <h6 style="margin-left: 20px; margin-top: 5px;">Check out our upcoming events we are involved in</h6>
-                
-            </div>
-            
-        </div>
-    </section>
-    <section class="events">
-        <div class="container">
-          <div class="bottomevents2" >
-            <div class="row upcoming-items" style="height: inherit;">
-                <div class="col-4" style="display: flex; align-items: center; justify-content: center;">
-                    <p>New work on <i>aedes aegypti</i> to be released</i></p>
-                </div> 
-                <div class="col-4" style="display: flex; align-items: center; justify-content: center;">
-                    <p>New tick genomes to be released</p>
-                </div>
-                <div class="col-4" style="display: flex; align-items: center; justify-content: center;">
-                    <p>New sandfly genomes to be released</p>
-                </div>
-              <!-- <div class="col-6" style="display: flex; text-align: center; align-items: center; justify-content: center; height: inherit; flex-direction: column;">
-                <p>Susana Campino's project </p>
-                <a class="powerpoint" href="/assets/files/MRC_LID_Campino_slides.pptx">Download</a>
-              </div>
-              <div class="col-6" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                <p>Taane Clark's project </p>
-                <a class="powerpoint"  href="/assets/files/MRC_LID_Clark_slides.pptx">Download</a>
+<div class="news-page" id="News">
 
-              </div> -->
-              <!-- <div class="col-4" style="display: flex; align-items: center; justify-content: center;">
-                <p></p>
-            </div> -->
-          </div>
+  <!-- ===== Latest news (top 3 posts, rotating) ===== -->
+  <section class="news-hero">
+    <div class="news-wrap">
+      <h1><span>TAGC</span> latest news</h1>
+
+      <div class="news-feature">
+        <div class="news-frame">
+          <span class="news-progress" aria-hidden="true"></span>
+          {% for post in site.posts limit:3 %}
+            {% capture pic %}/assets/img/newspics/{{ post.pid }}.webp{% endcapture %}
+            <figure class="news-slide{% if forloop.first %} is-active{% endif %}">
+              <img class="news-slide-bg" src="{{ pic | relative_url }}" alt="" aria-hidden="true"{% unless forloop.first %} loading="lazy"{% endunless %}>
+              <img class="news-slide-fg" src="{{ pic | relative_url }}"
+                   alt="{{ post.titleForBox | strip_html | escape }}"{% unless forloop.first %} loading="lazy"{% endunless %}>
+              <figcaption>
+                <span class="news-slide-title">{{ post.titleForBox | strip_html }}</span>
+                <time class="news-slide-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %b %Y" }}</time>
+              </figcaption>
+            </figure>
+          {% endfor %}
         </div>
+
+        <ol class="news-feature-list">
+          {% for post in site.posts limit:3 %}
+            {% if post.link and post.link != "none" %}{% assign link = post.link %}{% else %}{% assign link = post.url | relative_url %}{% endif %}
+            <li>
+              <a class="news-feature-item{% if forloop.first %} is-active{% endif %}" href="{{ link }}">
+                <span class="news-feature-num">{{ forloop.index }}</span>
+                <span>{{ post.titleForBox }}</span>
+              </a>
+            </li>
+          {% endfor %}
+        </ol>
       </div>
-    </section>
-    
-    {% assign count = 0 %}
-      
-    <section class="pastEvents">
-        <div class="container">
-            <h3 style="font-family: 'Heebo', sans-serif; border-bottom: 2px solid rgb(0,191,111); border-bottom-width: thin;">
-                Past Events
-            </h3>
-            <div class="row" style="margin-top: 30px;">
-                
-                {% for post in paginator.posts %}
-                {% if post.hidden != true %}
-                  {% assign author = site.people | where: "pid", post.author | sample %}
-                  {% if post.link != "none" %}
-                  {% assign link = post.link %}
-                  {% else %}
-                  {% assign link = post.url %}
-                  
-                  {% endif %}
-                  
-                    <div class="col-xl-4 newsbox" style="max-height: 450px; overflow-y: hidden;">
-                      <div class="title">
-                        <h3 style="font-family: 'Heebo', sans-serif; text-align: center;"><a href="{{ link }}">{{ post.titleForBox }}</a></h3>
-                      </div>
-                      <div class="content" style="text-align: center;">
-                        {{ post.brief }}
-                      </div>
-                      <div class="author" style="text-align: center;">
-                        <hr>
-                        <p>
-                          <img src="/assets/img/{{ author.pid }}.jpg" class="img-thumbnail" style="width: 3rem;" alt="..." onerror="this.onerror=null">
-                          {{author.forname}} {{author.surname}} <span class="date">{{post.date | date: "%-d %B %Y" }}</span>
-                        </p>
-                      </div>
-                    </div>
-                   {% endif %}
-                {% endfor %}
-              </div>
+    </div>
+  </section>
+
+  <!-- ===== Upcoming ===== -->
+  <section class="news-upcoming">
+    <div class="news-wrap">
+      <div class="news-upcoming-box">
+        <div class="news-upcoming-head">
+          <h2>Upcoming</h2>
+          <p>Work we're about to release.</p>
         </div>
-    
+        <ul class="news-upcoming-list">
+          <li>New work on <i>Aedes aegypti</i></li>
+          <li>New tick genomes</li>
+          <li>New sandfly genomes</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
+  <!-- ===== Past news ===== -->
+  <section class="news-past">
+    <div class="news-wrap">
+      <h2>Past news</h2>
 
-<!-- Pagination links -->
+      <div class="news-grid">
+        {% for post in paginator.posts %}
+          {% unless post.hidden == true %}
+            {% assign author = site.people | where: "pid", post.author | first %}
+            {% if post.link and post.link != "none" %}{% assign link = post.link %}{% else %}{% assign link = post.url | relative_url %}{% endif %}
 
-<nav aria-label="..." style="margin-top: 50px;" class="container">
-    <ul class="pagination">
-    {% if paginator.previous_page %}
-        <li class="page-item">
-            <a class="page-link" href="{{ paginator.previous_page_path }}">Previous</a>
-        </li>
-    {% else %}
-        <li class="page-item disabled">
-            <a class="page-link">Previous</a>
-        </li>
-    {% endif %}
+            <article class="news-card">
+              <a class="news-card-img" href="{{ link }}" tabindex="-1" aria-hidden="true">
+                <img src="{{ '/assets/img/newspics/' | append: post.pid | append: '.webp' | relative_url }}" alt="" loading="lazy" onerror="this.parentNode.classList.add('is-empty');this.remove()">
+              </a>
+              <h3><a href="{{ link }}">{{ post.titleForBox }}</a></h3>
+              <p class="news-card-brief">{{ post.brief | strip_html }}</p>
+              <div class="news-card-meta">
+                {% if author %}
+                  <img src="/assets/img/{{ author.pid }}.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+                {% endif %}
+                <div>
+                  {% if author %}<strong>{{ author.forname }} {{ author.surname }}</strong>{% endif %}
+                  <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %B %Y" }}</time>
+                </div>
+              </div>
+            </article>
+          {% endunless %}
+        {% endfor %}
+      </div>
 
-    {% assign pstart = paginator.page | minus : 2  | at_least: 1 %}
-    {% assign pend = paginator.page | plus  : 2  | at_most: paginator.total_pages%}
-    {% for i in (pstart..pend) %}
-        {% if i==1 %}
-            {% assign link = "/news/" %}
-        {% else %}
-            {% assign link = "/news/page" | append: i %}
-        {% endif %}
-        
-        {% if i==paginator.page %}
-            <li class="page-item active" aria-current="page">
-                <a class="page-link" href="{{ link }}">{{ i }}</a>
-            </li>    
-        {% else %}
-            <li class="page-item"><a class="page-link" href="{{ link }}">{{ i }}</a></li>    
-        {% endif %}
-    {% endfor %}
+      <!-- Pagination -->
+      <nav aria-label="News pages">
+        <ul class="news-pages">
+          {% if paginator.previous_page %}
+            <li><a href="{{ paginator.previous_page_path | relative_url }}">Previous</a></li>
+          {% else %}
+            <li><span class="is-disabled">Previous</span></li>
+          {% endif %}
 
-    {% if paginator.next_page %}
-        <li class="page-item">
-            <a class="page-link" href="{{ paginator.next_page_path }}">Next</a>
-        </li>
-    {% else %}
-        <li class="page-item disabled">
-            <a class="page-link" href="#">Next</a>
-        </li>
-    {% endif %}
+          {% assign pstart = paginator.page | minus: 2 | at_least: 1 %}
+          {% assign pend = paginator.page | plus: 2 | at_most: paginator.total_pages %}
+          {% for i in (pstart..pend) %}
+            {% if i == 1 %}{% assign plink = "/news/" %}{% else %}{% assign plink = "/news/page" | append: i %}{% endif %}
+            {% if i == paginator.page %}
+              <li><span class="is-current" aria-current="page">{{ i }}</span></li>
+            {% else %}
+              <li><a href="{{ plink | relative_url }}">{{ i }}</a></li>
+            {% endif %}
+          {% endfor %}
 
-    </ul>
-</nav>
+          {% if paginator.next_page %}
+            <li><a href="{{ paginator.next_page_path | relative_url }}">Next</a></li>
+          {% else %}
+            <li><span class="is-disabled">Next</span></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </section>
 </div>
-</div>
-</section>
-<scripts>
-    <script>
 
-        function changeImage(element){
-            document.getElementById(element).style.backgroundColor = "rgb(0,191,111)"
-        }
-    </script>
-    <script type="text/javascript">
-        
+<script>
+  // Rotate the three featured stories every 5 s. Hover or keyboard focus on a
+  // headline shows its picture and pauses rotation until the pointer leaves.
+  (function () {
+    var items  = Array.prototype.slice.call(document.querySelectorAll('.news-feature-item'));
+    var slides = Array.prototype.slice.call(document.querySelectorAll('.news-slide'));
+    if (items.length < 2) return;
 
-        let colours = ["rgb(0,191,111)","rgb(49,48,48)"];
-        
-        let div = document.getElementsByClassName("module");
-        let img = document.getElementsByTagName("img")
-        let img1 = document.getElementById("img1")
-        let img2 = document.getElementById("img2")
-        let img3 = document.getElementById("img3")
-        
-        
-        const imgElement1 = document.getElementById('mainPhoto1')
-        const imgElement2 = document.getElementById('mainPhoto2');
-        const imgElement3 = document.getElementById('mainPhoto3');
-        var counter = 0;
-        var image;
-        function doSomething(){
-              div[counter].style.backgroundColor = "rgb(0,191,111)";
-    
-    if(counter ===1){
-        
-        div[counter-1].style.backgroundColor = "rgb(49,48,48)"
-        img1.style.display = "none"
-        img2.style.display = "block"
-        img3.style.display = "none"
-        
-        
-        div[counter+1].style.backgroundColor = "rgb(49,48,48)"
-    }else if (counter ===0){
-        img1.style.display = "block"
-        img2.style.display = "none"
-        img3.style.display = "none"
-        div[counter+1].style.backgroundColor = "rgb(49,48,48)"
-        
-        div[counter+2].style.backgroundColor = "rgb(49,48,48)"
-    }else if(counter===2){
-        img1.style.display = "none"
-   
-
-   img2.style.display = "none"
-   img3.style.display = "block"
-        div[counter-1].style.backgroundColor = "rgb(49,48,48)"
-        div[counter-2].style.backgroundColor = "rgb(49,48,48)"
+    var current = 0;
+    var timer = null;
+    var bar = document.querySelector('.news-progress');
+    function restartBar(run) {
+      if (!bar) return;
+      bar.classList.remove('is-running');
+      void bar.offsetWidth;
+      if (run) bar.classList.add('is-running');
     }
-    
-    counter++;
-    if(counter === 3) {
-        
-        counter=0
-        setInterval(counter);
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function show(n) {
+      current = n;
+      items.forEach(function (el, i) { el.classList.toggle('is-active', i === n); });
+      slides.forEach(function (el, i) { el.classList.toggle('is-active', i === n); });
     }
-}
-        
+    function stop() { clearInterval(timer); timer = null; restartBar(false); }
+    function start() {
+      if (reduceMotion) return;
+      stop();
+      restartBar(true);
+      timer = setInterval(function () { show((current + 1) % items.length); restartBar(true); }, 5000);
+    }
 
-    // do your thing
-    
-doSomething();
-var timer = setInterval(doSomething,5000)
-function changeImage1(image){
-    
-    clearInterval(timer);
-    img1.src = "/assets/img/newspics/"+image+".webp"
-    var string = image
-    $('#grid1').css("background", "rgb(0,191,111)");
-    $('#grid3').css("background", "rgb(49,48,48)")
-    $('#grid2').css("background", "rgb(49,48,48)")
-    img1.style.display = "block"
-        img2.style.display = "none"
-        img3.style.display = "none"
- 
-} 
+    items.forEach(function (el, i) {
+      el.addEventListener('mouseenter', function () { stop(); show(i); });
+      el.addEventListener('focus',      function () { stop(); show(i); });
+      el.addEventListener('mouseleave', start);
+      el.addEventListener('blur',       start);
+    });
 
-function changeImage2(image){
-    clearInterval(timer);
-    var string = image
-    imgElement2.src = "/assets/img/newspics/"+image+".webp"
-    $('#grid2').css("background", "rgb(0,191,111)");
-    $("#grid1").css("background", "rgb(49,48,48)")
-    $("#grid3").css("background", "rgb(49,48,48)")
-    img1.style.display = "none"
-        img2.style.display = "block"
-        img3.style.display = "none"
-      
-}
-function changeImage3(image){
-    clearInterval(timer); var string = image
-    imgElement3.src = "/assets/img/newspics/"+image+".webp"
-    $('#grid3').css("background", "rgb(0,191,111)");
-
-    $('#grid1').css("background", "rgb(49,48,48)")
-    $('#grid2').css("background", "rgb(49,48,48)")
-    img1.style.display = "none"
-   
-
-   img2.style.display = "none"
-   img3.style.display = "block"
-   
-}
-function startTimer(){
-    
-    timer=setInterval(doSomething,5000)  
-}
-
-    </script>
-
-</scripts>
-</body>
+    show(0);
+    start();
+  })();
+</script>

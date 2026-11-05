@@ -2,528 +2,511 @@
 layout: default
 title: workshops
 ---
-<head>
-
-</head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FQRDTXMLDY"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-FQRDTXMLDY');
 </script>
-<links>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@900&display=swap" rel="stylesheet"> 
-    
-    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
-  </links>
- 
-<scripts>
-  <script src="https://kit.fontawesome.com/f8a9821c7d.js" crossorigin="anonymous"></script>
 
-</scripts>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
-  body{
+  .ws {
+    --green: #00bf6f;
+    --green-dark: #009a59;
+    --ink: #313030;
+    --ink-deep: #262525;
+    --soft: #f5f6f5;
+    --line: #e2e4e2;
+    --muted: #6a6d6b;
+    font-family: 'Heebo', system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--soft);
     overflow-x: hidden;
   }
- .yearList li{
-        width: 12.5%;
-        float: left;
-        display: inline;
+  .ws *, .ws *::before, .ws *::after { box-sizing: border-box; }
+  .ws [hidden] { display: none !important; }
+  .ws a:focus-visible,
+  .ws button:focus-visible {
+    outline: 3px solid var(--green);
+    outline-offset: 3px;
+  }
+  .ws-wrap {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 clamp(16px, 4vw, 48px);
+  }
+
+  /* ---------- Hero ---------- */
+  .ws-hero {
+    padding: clamp(40px, 7vw, 80px) 0 clamp(32px, 5vw, 56px);
+    background: var(--ink);
+    color: #fff;
+  }
+  .ws-hero h1 {
+    margin: 0 0 12px;
+    font-weight: 900;
+    font-size: clamp(2.6rem, 7vw, 4.75rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+  .ws-hero h1 span { color: var(--green); }
+  .ws-hero p {
+    max-width: 56ch;
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.55;
+    color: #d6d8d6;
+  }
+  .ws-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(20px, 5vw, 56px);
+    margin: clamp(24px, 4vw, 40px) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .ws-stats li { display: flex; flex-direction: column; }
+  .ws-stats strong {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 900;
+    line-height: 1;
+    color: var(--green);
+  }
+  .ws-stats span {
+    margin-top: 4px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #bfc2c0;
+  }
+
+  /* ---------- Layout ---------- */
+  .ws-body {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: clamp(24px, 4vw, 48px);
+    padding-top: clamp(32px, 5vw, 56px);
+    padding-bottom: clamp(56px, 8vw, 96px);
+  }
+
+  .ws-globe {
+    position: sticky;
+    top: 90px;
+    align-self: start;
+    border-radius: 18px;
+    background: var(--ink);
+    overflow: hidden;
+  }
+  #chartdiv {
+    width: 100%;
+    height: min(72vh, 620px);
+  }
+  .ws-globe-hint {
+    position: absolute;
+    left: 16px;
+    bottom: 14px;
+    margin: 0;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #d6d8d6;
+    font-size: 0.82rem;
+    font-weight: 500;
+    pointer-events: none;
+  }
+
+  /* ---------- Filters ---------- */
+  .ws-filter-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--green);
+  }
+  .ws-filter-head h2 {
+    margin: 0;
+    font-size: clamp(1.4rem, 2.6vw, 1.8rem);
+    font-weight: 900;
+  }
+  .ws-count {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .ws-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 22px;
+    padding: 0;
+    list-style: none;
+  }
+  .ws-chip {
+    padding: 6px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--ink);
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, color 0.15s;
+  }
+  .ws-chip:hover { border-color: var(--ink); }
+  .ws-chip[aria-pressed="true"] {
+    border-color: var(--ink);
+    background: var(--ink);
+    color: #fff;
+  }
+
+  /* ---------- Cards ---------- */
+  .ws-list {
+    display: grid;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .ws-card {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 1fr);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: #fff;
+    overflow: hidden;
+    animation: ws-in 0.35s ease both;
+  }
+  .ws-body > * { min-width: 0; }
+  .ws-card.no-img { grid-template-columns: minmax(0, 1fr); }
+  .ws-card.no-img .ws-card-img { display: none; }
+  .ws-card-img {
+    position: relative;
+    min-height: 170px;
+    background: var(--ink);
+    overflow: hidden;
+  }
+  .ws .ws-card-img img {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    object-fit: cover !important;
+    object-position: center;
+  }
+  .ws-card-body { padding: 18px 20px 20px; }
+  .ws-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .ws-year {
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: var(--green);
+    color: var(--ink-deep);
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .ws-place {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--muted);
+  }
+  .ws-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .ws-card-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4a4c4b;
+  }
+  .ws-card-text p { margin: 0 0 0.6em; }
+  .ws-card-text p:last-child { margin-bottom: 0; }
+
+  .ws-empty {
+    padding: 28px;
+    border: 1px dashed var(--line);
+    border-radius: 14px;
+    background: #fff;
+    color: var(--muted);
+  }
+
+  @keyframes ws-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 960px) {
+    .ws-body { grid-template-columns: minmax(0, 1fr); }
+    .ws-globe { position: relative; top: 0; }
+    #chartdiv { height: 360px; }
+  }
+  @media (max-width: 600px) {
+    .ws-chips {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      margin-right: calc(-1 * clamp(16px, 4vw, 48px));
+      padding-right: 16px;
+      padding-bottom: 4px;
+      scrollbar-width: none;
     }
-    .text-align h1 {
-  color:white; font-family: 'Heebo', sans-serif; bottom: 0; right: 0; position: absolute; margin-right: 40px;
-}
-
-@media (max-width: 900px) {
-    .text-align h1 {
-  color:white;  font-size: 20px; font-family: 'Heebo', sans-serif; bottom: 0; right: 0; position: absolute; margin-right: 20px;
-}
-
-}
-i {
-    font-size: 22px;
-}
-hr{
-  color: rgb(0,191,111);
-}
-
-
-  footer {
-    z-index: 9; 
-  
-}
-#popUp h4,h6{
-    text-align: center;
-    font-family: 'Lora', serif;
-    padding:20px
-}
-#text_before_map h4,h6{
-  text-align: center;
-    font-family: 'Lora', serif;
-    padding:20px
-}
-
-.headerContainer{
-    padding-top:100px;
-}
-.team-list{
-  font-family: 'Lora', serif;
-font-style: italic;
-display: inline;
-cursor: pointer;
-margin: 20px;
-
-
-
+    .ws-chips::-webkit-scrollbar { display: none; }
+    .ws-chips li { flex: none; }
+    .ws-card { grid-template-columns: minmax(0, 1fr); }
+    .ws-card-img { aspect-ratio: 16 / 9; }
   }
-  #currText{
-    font-weight: 700;
+  @media (prefers-reduced-motion: reduce) {
+    .ws-card { animation: none; }
   }
-  .team-list:hover{
-    font-weight: 700;
-  }
-  
-#chartdiv {
-  padding: 50px;
-  width: 100%;
-  height: 100vh;
-}
-#pop-up{
-  position: absolute;
-  top:0;
-  right:0;
-  z-index: 10;
-  opacity: 0;
-  width:0px;
-  height: 100vh;
-  transition: opacity 1s ease-in-out, width 1s ease-in-out, transform 1s ease 0s;
-  background-color: rgb(49,48,48);
-  color: white;
-  font-family: 'Lora', serif;
-  border-top-left-radius: 25px;
-  border-bottom-left-radius: 25px;
-  overflow-y: scroll;
-  transform: 
-    perspective(800px) 
-    rotateX(-10deg) 
-    rotateY(-20deg)
-    rotateZ(-2deg);
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-  
-  box-shadow:
-    rgba(0, 0, 0, 0.2) -10px 10px 20px -5px, /* closer shadow */
-    rgba(0, 0, 0, 0.14) -20px 20px 40px -10px, /* intermediate shadow */
-    rgba(0, 0, 0, 0.12) -30px 30px 60px -15px;
-  }
-
-
-.map{
-  position: relative;
-}
-.card-text{
-  padding:10px;
-  text-align: center;
-}
-.card-text-header{
-  padding-top: 30px;
-  text-align: center;
-}
-#pop-up img{
-  border-radius: 15px;
-  object-fit: cover; /* This will ensure that your image covers the entire width of the div, cropping it if necessary */
-  height: auto;
-  width: auto;
-  justify-content: center;
-  margin:0 auto;
-  display:block; max-width: 75%; align-items: center; margin-top: 20px;
-}
-
-
-#pop-up .image{
-  padding-bottom: 20px;
-  width: auto;
-  height: auto;
-}
-.workshop{
-  text-align: center;
-  align-items: center;
-}
-#borderBottom{
-  border-bottom: 2px dashed rgb(0,191,111);
-  
-  
-  height: 2px;
-}
 </style>
 
-<!-- Resources -->
+{%- comment -%} year can be a number or a string, so no Liquid sort on it — the cards are sorted in JS {%- endcomment -%}
+{%- assign workshops = site.workshops -%}
+{%- assign places = site.workshops | map: "country" | compact | uniq | sort_natural -%}
+{%- assign first_year = 9999 -%}
+{%- for w in site.workshops -%}
+  {%- assign y = w.year | append: "" | slice: 0, 4 | plus: 0 -%}
+  {%- if y > 1900 and y < first_year -%}{%- assign first_year = y -%}{%- endif -%}
+{%- endfor -%}
+
+<div class="ws" id="Capacity">
+  <header class="ws-hero">
+    <div class="ws-wrap">
+      <h1>Workshops</h1>
+      <p>As a team we have travelled the world teaching students the wonders of genomics. Pick a place on the globe to see what we ran there.</p>
+      <ul class="ws-stats">
+        <li><strong>{{ workshops.size }}</strong><span>workshops</span></li>
+        <li><strong>{{ places.size }}</strong><span>locations</span></li>
+        {%- if first_year < 9999 %}
+        <li><strong>{{ first_year }}</strong><span>first workshop</span></li>
+        {%- endif %}
+      </ul>
+    </div>
+  </header>
+
+  <div class="ws-wrap ws-body">
+    <div class="ws-globe">
+      <div id="chartdiv" role="img" aria-label="Globe showing workshop locations, linked from London"></div>
+      <p class="ws-globe-hint">Drag to spin · click a dot</p>
+    </div>
+
+    <section aria-labelledby="ws-list-title">
+      <div class="ws-filter-head">
+        <h2 id="ws-list-title">All workshops</h2>
+        <span class="ws-count" id="ws-count">{{ workshops.size }} shown</span>
+      </div>
+
+      <ul class="ws-chips" aria-label="Filter by location">
+        <li><button type="button" class="ws-chip" data-place="" aria-pressed="true">All</button></li>
+        {%- for place in places %}
+        <li><button type="button" class="ws-chip" data-place="{{ place }}" aria-pressed="false">{{ place }}</button></li>
+        {%- endfor %}
+      </ul>
+
+      <ul class="ws-list" id="ws-list">
+        {%- for workshop in workshops %}
+        <li class="ws-card" data-place="{{ workshop.country }}" data-year="{{ workshop.year }}">
+          <div class="ws-card-img">
+            <img src="{{ '/assets/img/workshops/' | append: workshop.pid | append: '.jpg' | relative_url }}"
+                 alt="" loading="lazy" onerror="this.closest('.ws-card').classList.add('no-img')">
+          </div>
+          <div class="ws-card-body">
+            <div class="ws-meta">
+              {%- if workshop.year %}<span class="ws-year">{{ workshop.year }}</span>{% endif %}
+              <span class="ws-place">{{ workshop.country }}</span>
+            </div>
+            <h3>{{ workshop.name }}</h3>
+            <div class="ws-card-text">{{ workshop.excerpt }}</div>
+          </div>
+        </li>
+        {%- endfor %}
+      </ul>
+      <p class="ws-empty" id="ws-empty" hidden>No workshops listed for this location yet.</p>
+    </section>
+  </div>
+</div>
+
 <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/map.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>
 <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
 
-<!-- Chart code -->
 <script>
-am5.ready(function() {
+(function () {
+  var cities = [
+    { id: "london",       title: "London",       geometry: { type: "Point", coordinates: [-0.1262, 51.5002] } },
+    { id: "lisbon",       title: "Lisbon",       geometry: { type: "Point", coordinates: [-9.1355, 38.7072] } },
+    { id: "hanoi",        title: "Hanoi",        geometry: { type: "Point", coordinates: [105.804, 21.02] } },
+    { id: "kuala lumpur", title: "Kuala Lumpur", geometry: { type: "Point", coordinates: [101.693207, 3.14] } },
+    { id: "manilla",      title: "Manilla",      geometry: { type: "Point", coordinates: [120.984222, 14.599512] } },
+    { id: "bangkok",      title: "Bangkok",      geometry: { type: "Point", coordinates: [100.523, 13.736] } },
+    { id: "singapore",    title: "Singapore",    geometry: { type: "Point", coordinates: [103.85, 1.29] } },
+    { id: "cape town",    title: "Cape Town",    geometry: { type: "Point", coordinates: [18.406263, -34.25457] } },
+    { id: "sao paolo",    title: "Sao Paolo",    geometry: { type: "Point", coordinates: [-46.33, -23.944] } },
+    { id: "maringa",      title: "Maringa",      geometry: { type: "Point", coordinates: [-51.933, -23.4209] } },
+    { id: "mali",         title: "Mali",         geometry: { type: "Point", coordinates: [-3.996, 17.5706] } },
+    { id: "oxford",       title: "Oxford",       geometry: { type: "Point", coordinates: [-1.257, 51.752] } },
+    { id: "cambridge",    title: "Cambridge",    geometry: { type: "Point", coordinates: [0.1191, 52.205] } },
+    { id: "ungku omar",   title: "Ungku Omar",   geometry: { type: "Point", coordinates: [101.075, 4.6005] } },
+    { id: "angeles",      title: "Angeles",      geometry: { type: "Point", coordinates: [120.591, 15.156] } },
+    { id: "davao city",   title: "Davao city",   geometry: { type: "Point", coordinates: [125.395, 7.2075] } },
+    { id: "medan",        title: "Medan",        geometry: { type: "Point", coordinates: [98.6, 3.597] } },
+    { id: "dhaka",        title: "Dhaka",        geometry: { type: "Point", coordinates: [90.399, 23.777] } }
+  ];
+  var origin = cities[0].geometry.coordinates;
 
-var root = am5.Root.new("chartdiv");
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.ws-chip'));
+  var list = document.getElementById('ws-list');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.ws-card'));
 
-root.setThemes([
-  am5themes_Animated.new(root)
-]);
+  // newest first (year may be "2019" or 2019 in the front matter)
+  cards.sort(function (a, b) {
+    return (parseInt(b.dataset.year, 10) || 0) - (parseInt(a.dataset.year, 10) || 0);
+  }).forEach(function (c) { list.appendChild(c); });
+  var title = document.getElementById('ws-list-title');
+  var count = document.getElementById('ws-count');
+  var empty = document.getElementById('ws-empty');
+  var chart = null, spin = null;
 
-var chart = root.container.children.push(am5map.MapChart.new(root, {
-  panX: "rotateX",
-  panY: "rotateY",
-  wheelY: "none",
-  projection: am5map.geoOrthographic(),
- 
-}));
-chart.animate({
-  key: "rotationX",
-  from: 360,
-  to: 0,
-  duration: 15000,
-  loops: Infinity
-});
+  function norm(s) { return (s || '').toString().trim().toLowerCase(); }
 
+  /* ----- Filtering ----- */
+  function select(place, fromGlobe) {
+    var key = norm(place), shown = 0;
 
-var polygonSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {
-  geoJSON: am5geodata_worldLow,
-  fill: am5.color("#313030"),
-}));
-
-
-var backgroundSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {}));
-backgroundSeries.mapPolygons.template.setAll({
-  fill: am5.color("#313030"),
-  fillOpacity: 0.1,
-  strokeOpacity: 0
-});
-backgroundSeries.data.push({
-  geometry: am5map.getGeoRectangle(90, 180, -90, -180)
-});
-
-
-
-var lineSeries = chart.series.push(am5map.MapLineSeries.new(root, {}));
-lineSeries.mapLines.template.setAll({
-  stroke: "RGB(0, 115, 67)",
-  strokeOpacity: 0.9
-});
-
-
-var citySeries = chart.series.push(
-  am5map.MapPointSeries.new(root, {})
-);
-var bulletTemplate = am5.Template.new(root, {});
-
-bulletTemplate.events.on("click", function(ev) {
-  
-  showWorkshops(ev.target.dataItem.dataContext.title)
-});
-
-
-bulletTemplate.set("cursor", "pointer");
-citySeries.bullets.push(function() {
-  var circle = am5.Circle.new(root, {
-    radius: 5,
-    tooltipText: "{title}",
-    tooltipY: 0,
-    fill: "rgb(0, 153, 89)",
-    interactive: true,
-    stroke: "rgb(0,191,111)",
-    strokeWidth: 2,
-    cursorOverStyle: "pointer",
- 
-  },bulletTemplate);
-  circle.states.create('hover', {
-  scale: 5
-});
-  return am5.Bullet.new(root, {
-    sprite: circle
-
-  });
-});
-
-// arrow series
-var arrowSeries = chart.series.push(
-  am5map.MapPointSeries.new(root, {})
-);
-
-arrowSeries.bullets.push(function() {
-  var arrow = am5.Graphics.new(root, {
-    fill: am5.color(0x00BF6F),
-    stroke: am5.color(0x000000),
-    draw: function (display) {
-      display.moveTo(0, -3);
-      display.lineTo(8, 0);
-      display.lineTo(0, 3);
-      display.lineTo(0, -3);
-    }
-  });
-
-  return am5.Bullet.new(root, {
-    sprite: arrow
-  });
-});
-
-var cities = [
-  {
-    id: "london",
-    title: "London",
-    geometry: { type: "Point", coordinates: [-0.1262, 51.5002] },
-  },{
-    id: "lisbon",
-    title: "Lisbon",
-    geometry: { type: "Point", coordinates: [-9.1355, 38.7072] }
-  },{
-    id: "hanoi",
-    title: "Hanoi",
-    geometry: { type: "Point", coordinates: [105.804,21.02] }
-  }, {
-    id: "kuala lumpur",
-    title: "Kuala Lumpur",
-    geometry: { type: "Point", coordinates: [101.693207, 3.14] }
-  }, {
-    id: "manilla",
-    title: "Manilla",
-    geometry: { type: "Point", coordinates: [ 120.984222,  14.599512] }
-  }, {
-    id: "bangkok",
-    title: "Bangkok",
-    geometry: { type: "Point", coordinates: [100.523,13.736 ] }
-  }, {
-    id: "singapore",
-    title: "Singapore",
-    geometry: { type: "Point", coordinates: [103.85,1.29 ] }
-  }, {
-    id: "cape town",
-    title: "Cape Town",
-    geometry: { type: "Point", coordinates: [18.406263,-34.254570] }
-  }, {
-    id: "sao paolo",
-    title: "Sao Paolo",
-    geometry: { type: "Point", coordinates: [-46.33, -23.944] }
-  }, {
-    id: "maringa",
-    title: "Maringa",
-    geometry: { type: "Point", coordinates: [-51.933, -23.4209] }
-  }, {
-    id: "mali",
-    title: "Mali",
-    geometry: { type: "Point", coordinates: [-3.996, 17.5706] }
-  }, {
-    id: "oxford",
-    title: "Oxford",
-    geometry: { type: "Point", coordinates: [-1.257, 51.752] }
-  }, {
-    id: "cambridge",
-    title: "Cambridge",
-    geometry: { type: "Point", coordinates: [0.1191, 52.205] }
-  },
-   {
-    id: "ungku omar",
-    title: "Ungku Omar",
-    geometry: { type: "Point", coordinates: [101.075, 4.6005] }
-  },
-   {
-    id: "angeles",
-    title: "Angeles",
-    geometry: { type: "Point", coordinates: [120.591,15.156] }
-  },
-   {
-    id: "davao city",
-    title: "Davao city",
-    geometry: { type: "Point", coordinates: [125.395,7.2075] }
-  },
-
-  {
-    id: "medan",
-    title: "Medan",
-    geometry: { type: "Point", coordinates: [98.6,3.597] }
-  },
-   {
-    id: "dhaka",
-    title: "Dhaka",
-    geometry: { type: "Point", coordinates: [90.399,23.777] }
-  }];
-
-citySeries.data.setAll(cities);
-
-
-var destinations = ["maringa","mali","oxford","ungku omar","cambridge","sao paolo", "lisbon", "cape town", "singapore", "bangkok", "manilla", "kuala lumpur", "hanoi","angeles","davao city","medan","dhaka"];
-
-var originLongitude = -0.1262;
-var originLatitude = 51.5002;
-
-am5.array.each(destinations, function (did) {
-  var destinationDataItem = citySeries.getDataItemById(did);
-  var lineDataItem = lineSeries.pushDataItem({ geometry: { type: "LineString", coordinates: [[originLongitude, originLatitude], [destinationDataItem.get("longitude"), destinationDataItem.get("latitude")]] } });
-
-  arrowSeries.pushDataItem({
-    lineDataItem: lineDataItem,
-    positionOnLine: 0.5,
-    autoRotate: true
-  });
-})
-
-chart.chartContainer.wheelable = false;
-
-chart.appear(1000, 100);
-
-});function showWorkshops(country) {
-    var popUp = document.getElementById('pop-up');
-    var workshops = popUp.getElementsByClassName('row');
-    
-    popUp.style.transition = "opacity 1s ease-in-out, width 1s ease-in-out, transform 1s ease 0s";
-    popUp.style.transform = "perspective(800px) rotateY(-8deg)";
-
-    if(popUp.style.opacity == 1){
-      popUp.style.opacity = 0;
-      popUp.style.width = "0px";
-      
-      setTimeout(function() {
-        for (var i = 0; i < workshops.length; i++) {
-          if (workshops[i].dataset.country == country) {
-            workshops[i].style.display = 'block';
-          } else {
-            workshops[i].style.display = 'none';
-          }
-        }
-
-        popUp.style.opacity = 1;
-        popUp.style.width = "25vw";
-        popUp.style.transform = "perspective(800px) rotateY(-4deg)";
-
-        popUp.onmouseover = function() {
-            this.style.transform = "perspective(800px) rotateY(0deg)";
-        };
-        popUp.onmouseout = function() {
-            this.style.transform = "perspective(800px) rotateY(-4deg)";
-        };
-
-      }, 1000);
-      
-    } else {
-      for (var i = 0; i < workshops.length; i++) {
-        if (workshops[i].dataset.country == country) {
-          workshops[i].style.display = 'block';
-        } else {
-          workshops[i].style.display = 'none';
-        }
+    chips.forEach(function (c) {
+      c.setAttribute('aria-pressed', norm(c.dataset.place) === key ? 'true' : 'false');
+    });
+    cards.forEach(function (card) {
+      var match = !key || norm(card.dataset.place) === key;
+      card.hidden = !match;
+      if (match) {
+        shown++;
+        card.style.animation = 'none';
+        void card.offsetWidth;          // restart the fade-in
+        card.style.animation = '';
       }
-      
-      popUp.style.opacity = 1;
-      popUp.style.width = "25vw";
-      popUp.style.transform = "perspective(800px) rotateY(-4deg)";
+    });
 
-      popUp.onmouseover = function() {
-          this.style.transform = "perspective(800px) rotateY(0deg)";
-      };
-      popUp.onmouseout = function() {
-          this.style.transform = "perspective(800px) rotateY(-4deg)";
-      };
+    title.textContent = key ? place : 'All workshops';
+    count.textContent = shown + ' shown';
+    empty.hidden = shown > 0;
+
+    if (key) focusCity(key);
+    else resumeSpin();
+
+    // On phones, bring the list into view after tapping the globe
+    if (fromGlobe && window.innerWidth <= 960) {
+      title.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-}
+  }
 
-function closePanel(){
-  
-  var popUp = document.getElementById('pop-up');
-  popUp.style.width = "0px"
-  popUp.style.opacity = 0
-}
-</script>
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () { select(chip.dataset.place, false); });
+  });
 
+  /* ----- Globe ----- */
+  function focusCity(key) {
+    if (!chart) return;
+    var city = cities.filter(function (c) { return norm(c.title) === key || c.id === key; })[0];
+    if (!city) return;
+    if (spin) { spin.stop(); spin = null; }
+    var lon = city.geometry.coordinates[0], lat = city.geometry.coordinates[1];
+    chart.animate({ key: 'rotationX', to: -lon, duration: 1200, easing: am5.ease.out(am5.ease.cubic) });
+    chart.animate({ key: 'rotationY', to: -lat, duration: 1200, easing: am5.ease.out(am5.ease.cubic) });
+  }
 
+  function resumeSpin() {
+    if (!chart || spin) return;
+    var start = chart.get('rotationX') || 0;
+    chart.animate({ key: 'rotationY', to: -20, duration: 800 });
+    spin = chart.animate({ key: 'rotationX', from: start, to: start - 360, duration: 30000, loops: Infinity });
+  }
 
-<body id="Capacity">
-<div class="main">
-    {% assign my_array = "" | split: ',' %}
-    <section class="heading" style="background-color:  rgb(49,48,48);height: 19vh; position: relative;">
-        <div class="container" >
-            <div class="text-align"  style=" box-shadow: 0 1px 6px rgb(255,255,255,0.3), 0 1px 4px rgba(255,255,255,0.2); background-color:rgb(0,191,111) ;position: absolute; bottom: 0; right: 0; width: 40vw; height: 80px; border-top-left-radius: 15px; border-bottom-left-radius: 15px;">
-                <h1 >WORKSHOPS</h1>
-            </div>     
-    </section>
-    <section class="headerContainer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12" id="text_before_map">
-                    <h4>As a team we have travelled the world teaching students the wonders of genomics.</h4>
-                    <h6>Take a look below by clicking a place on the map!</h6>
-                </div>
-            </div>
-        </div>
+  if (typeof am5 === 'undefined') return;
 
-    </section>
-  
-<section class="map">
-    <div id="chartdiv"></div>
-    <div class="pop-up" id="pop-up">
-      
-      {% for workshop in site.workshops %}
-      {% assign image = workshop.pid %}
-      <div class="container-fluid" id="workshopcontainer">
-      <div class="row" id="{{workshop.country}}" data-country="{{workshop.country}}"  style="margin-bottom: 100px;">      
-        <div class="col-md-12">
-            <div class="workshop">
-                <h4 class="card-text-header" >{{workshop.name}}</h4>
-                <h6 class="card-text-header">{{workshop.year}}</h6>
-                <p class="card-text" >{{workshop.excerpt}}</p>
-            </div>
-       
-          <div class="image" style=" z-index: 99999;">
-            <img class="card-img-top p-2"  src="/assets/img/workshops/{{image}}.jpg" loading="eager" alt="workshop Image">
-              <button onclick="closePanel()" style="margin:0 auto;
-                  display:block; width: 50%; align-items: center; margin-top: 20px;" class="btn btn-sm btn-outline-secondary">Close panel</button>
-              </div>
-            <div id="borderBottom"></div>
-        </div>
-      </div>
-      
-    </div>
-    {% endfor %}
-  </div>
-</section>
-</body>
+  am5.ready(function () {
+    var root = am5.Root.new('chartdiv');
+    root.setThemes([am5themes_Animated.new(root)]);
 
+    chart = root.container.children.push(am5map.MapChart.new(root, {
+      panX: 'rotateX',
+      panY: 'rotateY',
+      wheelY: 'none',
+      projection: am5map.geoOrthographic(),
+      rotationY: -20,
+      paddingTop: 24, paddingBottom: 24, paddingLeft: 24, paddingRight: 24
+    }));
+    chart.chartContainer.wheelable = false;
 
-<script type="text/javascript">
-        
-    function changeWorkshop(list){
-        
-        if (list == "ex"){
-            var past = document.getElementsByClassName("ex")
-            document.getElementById("exText").style.fontWeight = "700"
-            document.getElementById("inText").style.fontWeight = "100"
-            
-            for(i = 0; i < past.length; i++) {
-                past[i].style.display= 'block';
-                }
-                var current = document.getElementsByClassName("in")
-            for(i = 0; i < past.length; i++) {
-                current[i].style.display= 'none';
-                }
-            }else{
-                var past = document.getElementsByClassName("ex")
-                document.getElementById("inText").style.fontWeight = "700"
-                document.getElementById("exText").style.fontWeight = "100"
-            
-            for(i = 0; i < past.length; i++) {
-                past[i].style.display= 'none';
-                }
-                var current = document.getElementsByClassName("in")
-            for(i = 0; i < past.length; i++) {
-                current[i].style.display= 'block';
-                }
-            }}
+    // ocean
+    var ocean = chart.series.push(am5map.MapPolygonSeries.new(root, {}));
+    ocean.mapPolygons.template.setAll({ fill: am5.color(0x3b3a3a), strokeOpacity: 0 });
+    ocean.data.push({ geometry: am5map.getGeoRectangle(90, 180, -90, -180) });
+
+    // land
+    var land = chart.series.push(am5map.MapPolygonSeries.new(root, { geoJSON: am5geodata_worldLow }));
+    land.mapPolygons.template.setAll({
+      fill: am5.color(0x5a5c5b),
+      stroke: am5.color(0x3b3a3a),
+      strokeWidth: 0.5
+    });
+
+    // routes from London
+    var lines = chart.series.push(am5map.MapLineSeries.new(root, {}));
+    lines.mapLines.template.setAll({ stroke: am5.color(0x00bf6f), strokeOpacity: 0.7, strokeWidth: 1.2 });
+
+    // city dots
+    var points = chart.series.push(am5map.MapPointSeries.new(root, {}));
+    points.bullets.push(function (r, s, dataItem) {
+      var isHome = dataItem.dataContext.id === 'london';
+      var circle = am5.Circle.new(root, {
+        radius: isHome ? 7 : 5,
+        fill: am5.color(isHome ? 0xffffff : 0x00bf6f),
+        stroke: am5.color(0x262525),
+        strokeWidth: 2,
+        tooltipText: isHome ? '{title} (home)' : '{title}',
+        cursorOverStyle: 'pointer'
+      });
+      circle.states.create('hover', { scale: 1.8 });
+      circle.events.on('click', function (ev) {
+        select(ev.target.dataItem.dataContext.title, true);
+      });
+      return am5.Bullet.new(root, { sprite: circle });
+    });
+    points.data.setAll(cities);
+
+    cities.slice(1).forEach(function (c) {
+      lines.pushDataItem({
+        geometry: { type: 'LineString', coordinates: [origin, c.geometry.coordinates] }
+      });
+    });
+
+    spin = chart.animate({ key: 'rotationX', from: 0, to: -360, duration: 30000, loops: Infinity });
+    chart.appear(1000, 100);
+  });
+})();
 </script>

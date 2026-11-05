@@ -5,20 +5,10 @@ title: courses
 <links>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
 </links>
 <scripts>
   <script src="https://kit.fontawesome.com/f8a9821c7d.js" crossorigin="anonymous"></script>
-<script>
-    const width  = window.innerWidth || document.documentElement.clientWidth || 
-document.body.clientWidth;
-const height = window.innerHeight|| document.documentElement.clientHeight|| 
-document.body.clientHeight;
-
-console.log(width, height);
-</script>
 </scripts>
 
 
@@ -55,12 +45,32 @@ hr{
     z-index: 9; 
   
 }
+#Capacity, #Capacity h1, #Capacity p, #Capacity a{
+    font-family: 'Heebo', system-ui, sans-serif;
+}
 h1{
     text-align: left;
     align-items: center;
     justify-content: center;
     display: flex;
-    font-family: "Bebas Neue", sans-serif;
+    font-family: 'Heebo', system-ui, sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+}
+.title h1{
+    color: #262525;
+    font-size: clamp(2.6rem, 5vw, 4.5rem);
+    margin-bottom: 18px;
+}
+.title p{
+    color: #262525;
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin-bottom: 22px;
+}
+.text{
+    padding: 40px clamp(20px, 4vw, 48px);
 }
 
 .new_design{
@@ -103,33 +113,32 @@ h1{
 
 }
 .btn{
-    color: black;
-    background-color: rgb(0,176,191);
-    border-color: rgb(30,32,34);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-family: "Oswald", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  transition: all 0.3s ease;
-  width: 50%;
-  padding: 5px;
-  margin-top: 5px;
-  
-  position: relative;
-  z-index: 20;
-
+    padding: 11px 26px;
+    border: 2px solid #313030 !important;
+    border-radius: 8px;
+    background-color: #313030 !important;
+    color: #fff !important;
+    font-family: 'Heebo', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    box-shadow: none !important;
+    transition: background-color 0.2s, color 0.2s;
+    position: relative;
+    z-index: 20;
 }
-  .btn:active{
-    outline-color: black !important;
-  }
-  .btn:hover{
-    background-color: rgb(173,216,230);
-    transform: translateY(-3px);
-  box-shadow: 0 0 5px rgb(173,216,230), 0 0 7px rgb(173,216,230), 0 0 10px rgb(173,216,230);
-  }
+.btn:hover{
+    background-color: #fff !important;
+    border-color: #fff !important;
+    color: #262525 !important;
+}
+.btn:focus-visible{
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+}
 
   .picture{
     background-image: url("/assets/img/newspics/omicsLdn.webp");
@@ -306,7 +315,7 @@ h1{
     color: rgb(0,191,111);
     justify-content: center;
     align-items: center;
-    font-size: 45px;
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
 }
 .past{
     padding-top: 30px;
@@ -316,11 +325,13 @@ h1{
     align-items: center;
     justify-content: center;
     display: flex;
-    font-size: 28px;
-    color: rgb(0,191,111);
+    text-align: center;
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    font-weight: 500;
+    color: #d6d8d6;
 }
 p{
-    font-family: "Abel",sans-serif;
+    font-family: 'Heebo', system-ui, sans-serif;
 }
 .boxes{
     display: flex;
@@ -336,6 +347,17 @@ p{
 .boxes p{
     color: white;
     align-items: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.5;
+}
+@media (max-width: 1209px) {
+  .box1, .box2, .box3{ width: auto !important; min-height: 220px; align-self: stretch !important; }
+  .course-list, .numeroUno, .numeroDos, .course-list .row{ height: auto !important; }
+  .course-list{ padding-bottom: 40px; }
+  .numeroDos{ padding-top: 10px; }
+  .picture{ min-height: 280px; }
+  .title{ min-height: 60vh; }
 }
 .col-xl-8.boxes {
   display: flex;

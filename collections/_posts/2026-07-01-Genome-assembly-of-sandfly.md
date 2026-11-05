@@ -1,7 +1,7 @@
 ---
 layout: post
 pid: pernicAssembly
-hidden: true
+hidden: false
 titleForBox: Genome Assembly of <i>Phlebotomus perniciosus</i>
 author: jthorpe
 link: https://www.nature.com/articles/s41597-026-07617-1

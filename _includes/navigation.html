@@ -1,133 +1,327 @@
-<links>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-</links>
-<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+{%- comment -%}
+  Site navigation. Highlights the current section from the page URL,
+  so pages no longer need an id on <body> for the active state.
+{%- endcomment -%}
+{%- assign u = page.url -%}
+{%- assign section = "" -%}
+{%- if u == "/" or u == "/index.html" -%}{%- assign section = "home" -%}
+{%- elsif u contains "/people" -%}{%- assign section = "people" -%}
+{%- elsif u contains "/themes" -%}{%- assign section = "research" -%}
+{%- elsif u contains "/teaching" -%}{%- assign section = "teaching" -%}
+{%- elsif u contains "/publications" -%}{%- assign section = "publications" -%}
+{%- elsif u contains "/news" or page.collection == "posts" -%}{%- assign section = "news" -%}
+{%- elsif u contains "/funding" -%}{%- assign section = "funding" -%}
+{%- elsif u contains "/data" -%}{%- assign section = "data" -%}
+{%- endif -%}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
-    @media (max-width:990px){
-        nav.navbar li a {
-            background-color: rgb(49,48,48);
-        }
-    }
- 
+  .tn {
+    --green: #00bf6f;
+    --ink: #313030;
+    --ink-deep: #262525;
+    --ink-soft: #3d3c3c;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--ink);
+    border-bottom: 3px solid var(--green);
+    font-family: 'Heebo', system-ui, sans-serif;
+  }
+  .tn *, .tn *::before, .tn *::after { box-sizing: border-box; }
 
-.navbar-nav {
+  .tn-bar {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    max-width: 1320px;
+    height: 72px;
+    margin: 0 auto;
+    padding: 0 clamp(16px, 4vw, 48px);
+  }
+
+  .tn-logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 10px 0;
+    flex-shrink: 0;
+  }
+  .tn-logo img {
+    display: block;
+    height: 100%;
+    width: auto;
+  }
+
+  .tn-links {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .tn-link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    height: 44px;
+    padding: 0 12px;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+    font-size: 0.98rem;
+    font-weight: 500;
+    white-space: nowrap;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+  }
+  .tn-link:hover { background: var(--ink-soft); color: #fff; }
+
+  .tn-link.is-active {
+    color: var(--green);
+    font-weight: 700;
+  }
+  .tn-link.is-active::after {
+    content: '';
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 4px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--green);
+  }
+
+  .tn-link:focus-visible,
+  .tn-toggle:focus-visible,
+  .tn-menu a:focus-visible {
+    outline: 3px solid var(--green);
+    outline-offset: 2px;
+  }
+
+  .tn-caret {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.2s;
+  }
+
+  /* Dropdown */
+  .tn-drop { position: relative; }
+
+  .tn-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    min-width: 200px;
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    border: 1px solid #4a4949;
+    border-radius: 10px;
+    background: var(--ink-deep);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity 0.15s, transform 0.15s, visibility 0.15s;
+  }
+  .tn-menu a {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 6px;
+    color: #fff;
+    text-decoration: none;
+  }
+  .tn-menu a:hover { background: var(--green); color: var(--ink-deep); }
+  .tn-menu a[aria-current="page"] { color: var(--green); font-weight: 700; }
+
+  .tn-drop.is-open .tn-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+  .tn-drop.is-open .tn-caret { transform: rotate(180deg); }
+
+  /* Hamburger (hidden on desktop) */
+  .tn-toggle {
+    display: none;
+    align-items: center;
     justify-content: center;
-    flex: 1;
-    
-}
-@media (min-width: 992px) {
-    .collapse.navbar-collapse {
-        justify-content: center;
-        flex-grow: 1;
-        padding: 10px;
-    }
-    #main_nav {
-        padding-right: 100px;
-    }
-}
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 8px;
+    background: var(--green);
+    color: var(--ink-deep);
+    cursor: pointer;
+  }
+  .tn-toggle svg { width: 24px; height: 24px; }
+  .tn-toggle .tn-close { display: none; }
+  .tn.is-open .tn-toggle .tn-open { display: none; }
+  .tn.is-open .tn-toggle .tn-close { display: block; }
 
-@media (max-width: 991.98px) {
-    #main_nav {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        padding: 0.5rem 1rem;
-        background-color: rgb(49, 48, 48) !important;
-        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+  /* ---------- Desktop: open dropdown on hover too ---------- */
+  @media (min-width: 1081px) and (hover: hover) {
+    .tn-drop:hover .tn-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: none;
     }
-    #main_nav .nav-link {
-        padding: 0.6rem 1rem;
-    }
-}
-    nav.navbar li a {
-        color: white;
-        font-family: 'Lato', sans-serif;
-    }  
-    nav.navbar li {
-        align-items: center;
-        text-align: center;
-        justify-content: center;
-    }  
-    nav.navbar li a:hover {
-        font-weight: 900;
-        color: white;
-        background-color: rgb(0,191,111);
-        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        border-radius: 5px;
-    }
-    #people .nav-item-1, #Home .nav-item-2, #Capacity .nav-item-3, #publications .nav-item-4, #research .nav-item-5, #News .nav-item-6, #Funding .nav-item-7, #Data .nav-item-8 {
-        background: rgb(0,191,111);
-        border-radius: 5px;
-    }
-    .navbar-expand-lg {
-        background: linear-gradient(145deg, #3d3d3d, #5a5a5a);
-        height: 95px;
-        width: 100%;
-        z-index: 99999999999999999;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        border-bottom: 1px solid rgb(0,191,111);
-    }
-    .heaader, .image-link {
-        display: flex;
-        
-        justify-content: flex-start;
-        height: inherit;
-    }
-    
-    .heaader img {
-        height: inherit;
-        width: auto;
-    }
-    .heaader{
-        display:flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
+    .tn-drop:hover .tn-caret { transform: rotate(180deg); }
+  }
 
+  /* ---------- Mobile / tablet ---------- */
+  @media (max-width: 1080px) {
+    .tn-bar { height: 64px; }
+    .tn-toggle { display: inline-flex; }
+
+    .tn-panel {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      max-height: calc(100vh - 64px);
+      overflow-y: auto;
+      padding: 8px clamp(16px, 4vw, 48px) 16px;
+      background: var(--ink);
+      border-bottom: 3px solid var(--green);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+      display: none;
+    }
+    .tn.is-open .tn-panel { display: block; }
+
+    .tn-links {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 2px;
+    }
+    .tn-link {
+      width: 100%;
+      height: 48px;
+      justify-content: space-between;
+      font-size: 1.05rem;
+    }
+    .tn-link.is-active::after {
+      left: 0;
+      right: auto;
+      top: 10px;
+      bottom: 10px;
+      width: 3px;
+      height: auto;
     }
 
-    .heaader a.image-link{
-        display: flex;
-        align-items: center;
-
+    .tn-menu {
+      position: static;
+      min-width: 0;
+      margin: 2px 0 6px 12px;
+      border: none;
+      border-left: 2px solid #4a4949;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      display: none;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
     }
-    
+    .tn-drop.is-open .tn-menu { display: block; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tn-link, .tn-menu, .tn-caret { transition: none; }
+  }
 </style>
 
-<nav class="navbar navbar-expand-lg navbar-light">
-    <div class="contain heaader">
-        <a class="image-link" href="{{site.url}}">
-            <img src="/assets/img/logo/logo.png">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation" style="background-color: rgb(0,191,111);color:white">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse w-100" id="main_nav" style="background-color: rgba(49, 48, 48,0);">
-            <ul class="navbar-nav w-100 justify-content-center">
-                <li class="nav-item-2"><a class="nav-link" href="/">Home </a></li>
-                <li class="nav-item-1"><a class="nav-link" href="/people">The team </a></li>
-                <li class="nav-item-5 dropdown" style="background-color: rgba(49, 48, 48,0);">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Our research</a>
-                    <ul class="dropdown-menu" style="background-color: rgb(49,48,48);">
-                        <li><a class="dropdown-item" href="/themes/malaria">Malaria</a></li>
-                        <li><a class="dropdown-item" href="/themes/tuberculosis">Tuberculosis</a></li>
-                        <li><a class="dropdown-item" href="/themes/vectors">Vectors</a></li>
-                        <li><a class="dropdown-item" href="/themes/amr">AMR</a></li>
-                        <li><a class="dropdown-item" href="/themes/viruses">Viruses</a></li>
-                        <li><a class="dropdown-item" href="/themes/software">Software</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item-3"><a class="nav-link" href="/teaching">Capacity Strengthening </a></li>
-                <li class="nav-item-4"><a class="nav-link" href="/publications">Publications </a></li>
-                <li class="nav-item-6"><a class="nav-link" href="/news">News </a></li>
-                <li class="nav-item-7"><a class="nav-link" href="/funding">Funding </a></li>
-                <li class="nav-item-8"><a class="nav-link" href="/data">Data </a></li>
-            </ul>
-        </div>
+<nav class="tn" aria-label="Main">
+  <div class="tn-bar">
+    <a class="tn-logo" href="{{ '/' | relative_url }}" aria-label="TAGC home">
+      <img src="{{ '/assets/img/logo/logo.png' | relative_url }}" alt="TAGC">
+    </a>
+
+    <button class="tn-toggle" type="button" aria-expanded="false" aria-controls="tn-panel" aria-label="Open menu">
+      <svg class="tn-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="tn-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+
+    <div class="tn-panel" id="tn-panel">
+      <ul class="tn-links">
+        <li><a class="tn-link{% if section == 'home' %} is-active{% endif %}" href="{{ '/' | relative_url }}"{% if section == 'home' %} aria-current="page"{% endif %}>Home</a></li>
+        <li><a class="tn-link{% if section == 'people' %} is-active{% endif %}" href="{{ '/people' | relative_url }}"{% if section == 'people' %} aria-current="page"{% endif %}>The team</a></li>
+
+        <li class="tn-drop">
+          <button class="tn-link{% if section == 'research' %} is-active{% endif %}" type="button" aria-expanded="false" aria-controls="tn-research">
+            Our research
+            <svg class="tn-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+          <ul class="tn-menu" id="tn-research">
+            {%- assign themes = "malaria:Malaria,tuberculosis:Tuberculosis,vectors:Vectors,amr:AMR,viruses:Viruses,software:Software" | split: "," -%}
+            {%- for t in themes -%}
+              {%- assign parts = t | split: ":" -%}
+              {%- assign href = "/themes/" | append: parts[0] -%}
+              <li><a href="{{ href | relative_url }}"{% if u contains href %} aria-current="page"{% endif %}>{{ parts[1] }}</a></li>
+            {%- endfor -%}
+          </ul>
+        </li>
+
+        <li><a class="tn-link{% if section == 'teaching' %} is-active{% endif %}" href="{{ '/teaching' | relative_url }}"{% if section == 'teaching' %} aria-current="page"{% endif %}>Capacity strengthening</a></li>
+        <li><a class="tn-link{% if section == 'publications' %} is-active{% endif %}" href="{{ '/publications' | relative_url }}"{% if section == 'publications' %} aria-current="page"{% endif %}>Publications</a></li>
+        <li><a class="tn-link{% if section == 'news' %} is-active{% endif %}" href="{{ '/news' | relative_url }}"{% if section == 'news' %} aria-current="page"{% endif %}>News</a></li>
+        <li><a class="tn-link{% if section == 'funding' %} is-active{% endif %}" href="{{ '/funding' | relative_url }}"{% if section == 'funding' %} aria-current="page"{% endif %}>Funding</a></li>
+        <li><a class="tn-link{% if section == 'data' %} is-active{% endif %}" href="{{ '/data' | relative_url }}"{% if section == 'data' %} aria-current="page"{% endif %}>Data</a></li>
+      </ul>
     </div>
+  </div>
 </nav>
+
+<script>
+  (function () {
+    var nav = document.querySelector('.tn');
+    if (!nav) return;
+    var toggle = nav.querySelector('.tn-toggle');
+    var drops = Array.prototype.slice.call(nav.querySelectorAll('.tn-drop'));
+
+    function setMenu(open) {
+      nav.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    }
+    function setDrop(drop, open) {
+      drop.classList.toggle('is-open', open);
+      drop.querySelector('button').setAttribute('aria-expanded', String(open));
+    }
+    function closeAll() {
+      drops.forEach(function (d) { setDrop(d, false); });
+    }
+
+    toggle.addEventListener('click', function () {
+      setMenu(!nav.classList.contains('is-open'));
+    });
+
+    drops.forEach(function (drop) {
+      drop.querySelector('button').addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = !drop.classList.contains('is-open');
+        closeAll();
+        setDrop(drop, open);
+      });
+    });
+
+    // Close menus on outside click or Escape
+    document.addEventListener('click', function (e) {
+      if (!nav.contains(e.target)) { closeAll(); setMenu(false); }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { closeAll(); setMenu(false); toggle.focus(); }
+    });
+  })();
+</script>
